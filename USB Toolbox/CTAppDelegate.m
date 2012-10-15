@@ -8,19 +8,28 @@
 
 #import "CTAppDelegate.h"
 
-NSString * const CTDefault_VID_Key      = @"userVID";
-NSString * const CTDefault_PID_Key      = @"userPID";
-NSString * const CTDefault_VID_String   = @"userVID";
-NSString * const CTDefault_bRequest_Key = @"controlTransferRequest";
-NSString * const CTDefault_wValue_Key   = @"controlTransferValue";
-NSString * const CTDefault_wIndex_Key   = @"controlTransferIndex";
-NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
+#pragma mark Defaults Keys
+NSString * const CTDefault_ConsoleBackgroundColor_Key       = @"consoleBackgroundColor";
+NSString * const CTDefault_ConsoleErrorTextColor_Key        = @"consoleErrorTextColor";
+NSString * const CTDefault_ConsoleDataTextColor_Key         = @"consoleDataTextColor";
+NSString * const CTDefault_ConsoleInformationTextColor_Key  = @"consoleInformationTextColor";
+NSString * const CTDefault_DisplayHexOrPlainText_Key        = @"displayHexOrPlainText";
+NSString * const CTDefault_VID_Key                          = @"deviceVIDString";
+NSString * const CTDefault_PID_Key                          = @"devicePIDString";
+NSString * const CTDefault_bmRequestType_Key                = @"requestType";
+NSString * const CTDefault_bmRequestDestination_Key         = @"requestDestination";
+NSString * const CTDefault_bRequest_Key                     = @"controlTransferRequestString";
+NSString * const CTDefault_wValue_Key                       = @"controlTransferValueString";
+NSString * const CTDefault_wIndex_Key                       = @"controlTransferIndexString";
+NSString * const CTDefault_wLength_Key                      = @"controlTransferLengthString";
 
 @implementation CTAppDelegate
 
+
+#pragma mark Syntesis
 @synthesize displayHexOrPlainText;
 @synthesize requestType;
-@synthesize requestDestinationAndType;
+@synthesize requestDestination;
 @synthesize consoleErrorTextColor;
 @synthesize consoleInformationTextColor;
 @synthesize consoleDataTextColor;
@@ -33,18 +42,21 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 @synthesize controlTransferLengthString;
 
 
-#pragma mark Startup Methohos
-
+#pragma mark Startup Methods
 
 + (void) initialize
 {
-  NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys: [NSArchiver archivedDataWithRootObject: [ NSColor blackColor ]] ,   @"consoleBackgroundColor",
-                                 [NSArchiver archivedDataWithRootObject: [ NSColor redColor ] ], @"consoleErrorTextColor",
-                                 [NSArchiver archivedDataWithRootObject: [ NSColor greenColor ] ] , @"consoleDataTextColor",
-                                 [NSArchiver archivedDataWithRootObject: [ NSColor grayColor ] ], @"consoleInformationTextColor",
+  NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSArchiver archivedDataWithRootObject: [ NSColor blackColor ]], CTDefault_ConsoleBackgroundColor_Key,
+                                 [NSArchiver archivedDataWithRootObject: [ NSColor redColor   ]], CTDefault_ConsoleErrorTextColor_Key,
+                                 [NSArchiver archivedDataWithRootObject: [ NSColor greenColor ]], CTDefault_ConsoleDataTextColor_Key,
+                                 [NSArchiver archivedDataWithRootObject: [ NSColor grayColor  ]], CTDefault_ConsoleInformationTextColor_Key,
+                                 @"0",    CTDefault_DisplayHexOrPlainText_Key,
                                  @"0000", CTDefault_VID_Key,
                                  @"0000", CTDefault_PID_Key,
-                                 @"00",   CTDefault_bRequest_Key,
+                                 @"0",  CTDefault_bmRequestType_Key,
+                                 @"0",    CTDefault_bmRequestDestination_Key,
+                                 @"00"  , CTDefault_bRequest_Key,
                                  @"0000", CTDefault_wValue_Key,
                                  @"0000", CTDefault_wIndex_Key,
                                  @"0000", CTDefault_wLength_Key,
@@ -55,12 +67,12 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
-
-
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   outputTextStorage = [ consoleTextView textStorage ];
+  inputTextStorage  = [ inputTextView textStorage ];
+
+  [ inputTextView setFont: [ NSFont fontWithName:@"Monaco" size:13.0 ]];
 
   [ self setupBindings ];
 
@@ -72,54 +84,89 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
-
-
-
 - (void) setupBindings
 {
-  [ consoleTextView bind:@"backgroundColor"
+  [ consoleTextView bind: @"backgroundColor"
                 toObject: userDefaultsController
-             withKeyPath: @"values.consoleBackgroundColor"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleBackgroundColor_Key ]
                  options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
                                                       forKey: NSValueTransformerNameBindingOption ] ];
-  [ self            bind:@"consoleErrorTextColor"
+  [ inputTextView bind: @"backgroundColor"
+              toObject: userDefaultsController
+           withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleBackgroundColor_Key ]
+              options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
+                                                      forKey: NSValueTransformerNameBindingOption ] ];
+
+  [ inputTextView bind: @"insertionPointColor"
+              toObject: userDefaultsController
+           withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleDataTextColor_Key ]
+               options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
+                                                    forKey: NSValueTransformerNameBindingOption ] ];
+
+  [ inputTextView bind: @"textColor"
+              toObject: userDefaultsController
+           withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleDataTextColor_Key ]
+               options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
+                                                    forKey: NSValueTransformerNameBindingOption ] ];
+
+  [ self            bind: CTDefault_ConsoleErrorTextColor_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.consoleErrorTextColor"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleErrorTextColor_Key ]
                  options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
                                                       forKey: NSValueTransformerNameBindingOption ]  ];
-  [ self            bind: @"consoleDataTextColor"
+  [ self            bind: CTDefault_ConsoleDataTextColor_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.consoleDataTextColor"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleDataTextColor_Key ]
                  options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
                                                       forKey: NSValueTransformerNameBindingOption ] ];
-  [ self            bind: @"consoleInformationTextColor"
+  [ self            bind: CTDefault_ConsoleInformationTextColor_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.consoleInformationTextColor"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleInformationTextColor_Key ]
                  options: [NSDictionary dictionaryWithObject: NSUnarchiveFromDataTransformerName
                                                       forKey: NSValueTransformerNameBindingOption ] ];
-  [ self            bind: @"devicePIDString"
+  [ self            bind: CTDefault_PID_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.userPID"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_PID_Key ]
                  options: nil ];
-  [ self            bind: @"deviceVIDString"
+  
+  [ self            bind: CTDefault_VID_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.userVID"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_VID_Key ]
                  options: nil ];
-  [ self            bind: @"controlTransferRequestString"
+  
+  [ self            bind: CTDefault_bRequest_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.controlTransferRequest"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bRequest_Key ]
                  options: nil ];
-  [ self            bind: @"controlTransferValueString"
+  
+  [ self            bind: CTDefault_wValue_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.controlTransferValue"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_wValue_Key ]
                  options: nil ];
-  [ self            bind: @"controlTransferIndexString"
+  
+  [ self            bind: CTDefault_wIndex_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.controlTransferIndex"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_wIndex_Key ]
                  options: nil ];
-  [ self            bind: @"controlTransferLengthString"
+  
+  [ self            bind: CTDefault_wLength_Key
                 toObject: userDefaultsController
-             withKeyPath: @"values.controlTransferLength"
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_wLength_Key ]
+                 options: nil ];
+  
+  [ self            bind: CTDefault_DisplayHexOrPlainText_Key
+                toObject: userDefaultsController
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_DisplayHexOrPlainText_Key ]
+                 options: nil ];
+  
+  [ self            bind: CTDefault_bmRequestType_Key
+                toObject: userDefaultsController
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bmRequestType_Key ]
+                 options: nil ];
+  
+  [ self            bind: CTDefault_bmRequestDestination_Key
+                toObject: userDefaultsController
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bmRequestDestination_Key ]
                  options: nil ];
 }
 
@@ -128,13 +175,17 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
+
+
+
+
+#pragma mark USB Actions
+
 - (IBAction) doUSBControlTransfer: (id) sender
 {
   UInt16  deviceVID, devicePID, wIndex, wLength, wValue;
   UInt8   bRequest, bmRequestType;
   int     result;
-
-  static unsigned char data[4096];
 
   deviceVID     = convertNSStringToUInt16( deviceVIDString );
   devicePID     = convertNSStringToUInt16( devicePIDString );
@@ -142,8 +193,26 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
   wIndex        = convertNSStringToUInt16( controlTransferIndexString );
   wLength       = [ controlTransferLengthString intValue ];
   wValue        = convertNSStringToUInt8( controlTransferValueString );
-  bmRequestType = (UInt8) requestType | requestDestinationAndType;
-  
+  bmRequestType = (UInt8) requestType | requestDestination;
+
+
+  unsigned char data[4096];
+
+
+  if ( !(self.requestType & 0x80) ) { // is it host -> device request?    
+
+    NSString      *inputString    = [ inputTextStorage string ];
+    NSData        *inputData      = [ self dataFromHexString: inputString ];
+    NSUInteger    inputLength       = [ inputData length ];
+    unsigned char *inputDataBytes = (unsigned char *) [ inputData bytes ];
+
+    if (  inputLength < wLength ) {
+      wLength = inputLength;
+      [self setControlTransferLengthString: [ NSString stringWithFormat: @"%d", wLength ]];
+    }
+
+    memcpy(data, inputDataBytes, wLength);
+  }
 
 
   [self printString: [ NSString stringWithFormat: @"Control transfer VID=%04x PID=%04x bmRequestType=%02x bRequest=%02x wValue=%04x wIndex=%04x wLength=%04x\n", deviceVID, devicePID, bmRequestType, bRequest, wValue, wIndex, wLength ] withTextColor: self.consoleInformationTextColor ];
@@ -172,9 +241,6 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
   }
   libusb_close( USBDeviceHandle );
 }
-
-
-
 
 
 
@@ -207,15 +273,13 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
+
 #pragma mark Printing Methods
 
 - (void) printString: (NSString *) theString
 {
   [self printString: theString withTextColor: nil ];
 }
-
-
-
 
 
 
@@ -240,9 +304,6 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
-
-
-
 - (void) printData: (unsigned char *) theData length: (int) theLength
 {
   switch ( displayHexOrPlainText ) {
@@ -251,7 +312,7 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
       break;
 
     case CT_DISPLAY_PLAIN_TEXT:
-      [ self printStringFromData: theData length: theLength ];
+      [ self printPlainTextFromData: theData length: theLength ];
       break;
 
     default:
@@ -261,62 +322,67 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
-
-
-
 - (void) printHexFromData: (unsigned char *) theData length: (int) theLength
 {
   UInt16  i;
   UInt16 address = 0;
-  
-  NSMutableString *hexString = [NSMutableString new];
 
   for (i=0; i<theLength; i++) {
     switch ( i & 0x000F ) {
+
       case 0x0000:
-        [ hexString appendFormat: @"%04X: %02X",  address, theData[i]];
+        [ self printString: [ NSString stringWithFormat: @"%04X: %02X",  address, theData[i] ]];
         break;
+
       case 0x000F:
-        [ hexString appendFormat:@" %02X\n", theData[i] ];
+        [ self printString: [ NSString stringWithFormat: @" %02X    %@\n", theData[i], [ self plainTextStringFromData: &theData[i-15] length: 16 breakNewLines: FALSE ] ]];
         address += 0x10;
         break;
+
       default:
-        [ hexString appendFormat:@" %02X", theData[i] ];
+        [ self printString: [ NSString stringWithFormat: @" %02X", theData[i] ]];
         break;
+        
     }
   }
-  [ self printString: hexString ];
   [ self printNewLine: 2 ];
 }
 
 
 
-
-
-
-- (void) printStringFromData: (unsigned char *) theData length: (int) theLength
+- (NSString *) plainTextStringFromData: (unsigned char *) theData length: (int) theLength breakNewLines: (BOOL) doNewLines
 {
   int i;
-  char dataString[theLength+1];
-  char currentCharacter;
-  memset(dataString, 0, theLength+1);
-  for (i=0; i<theLength; i++) {
-    currentCharacter = theData[i];
-    if ( currentCharacter == 0 ) {
-      dataString[i] = '.';
-    } else if ( isascii(currentCharacter) ) {
-      dataString[i] = currentCharacter;
+  char theCString[theLength];
+  NSString   *theReturnedString;
+
+  for ( i = 0 ; i < theLength ; i++ ) {
+    if ( theData[i] < 0x7F && theData[i] > 0x1F ) { // is the byte a a visible ascii character?
+      theCString[i] = theData[i];
+    } else if ( theData[i] == '\r' && doNewLines == TRUE ) {
+      theCString[i] = theData[i];
     } else {
-      dataString[i] = '.';
+      theCString[i] = '.';
     }
   }
+  theCString[theLength] = 0;
 
-  [ self printString: [NSString stringWithCString: dataString encoding: NSASCIIStringEncoding ]];
-  [ self printNewLine: 2 ];
+  theReturnedString = [ NSString stringWithCString: theCString encoding: NSASCIIStringEncoding ];
+
+  return theReturnedString;
+
 }
 
 
 
+- (void) printPlainTextFromData: (unsigned char *) theData length: (int) theLength
+{
+  NSString *theOuputString = [ self plainTextStringFromData: theData
+                                                     length: theLength
+                                              breakNewLines: TRUE ];
+  [ self printString: theOuputString ];
+  [ self printNewLine: 2 ];
+}
 
 
 
@@ -332,9 +398,6 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
-
-
-
 - (void) printNewLine: (int) numberOfNewLines
 {
   int i = numberOfNewLines > 0 ? numberOfNewLines : 1;
@@ -343,9 +406,6 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
   }
 
 }
-
-
-
 
 
 
@@ -359,9 +419,13 @@ NSString * const CTDefault_wLength_Key  = @"controlTransferLength";
 
 
 
-#pragma mark Helper Functions
 
-UInt8 convertNSStringToUInt8(NSString *theString)
+
+
+
+#pragma mark Helper Functions/Methods
+
+UInt8 convertNSStringToUInt8( NSString *theString )
 {
   unsigned int theResult;
   sscanf([theString cStringUsingEncoding:NSUTF8StringEncoding], "%x", &theResult);
@@ -379,6 +443,34 @@ UInt16 convertNSStringToUInt16( NSString *theString )
 
 
 
+- (NSData *) dataFromHexString: (NSString *) theString
+{
+  unsigned int i;
+//  int bytesScanned = 0;
+
+  NSScanner* scanner = [NSScanner scannerWithString: theString ];
+	[scanner setCharactersToBeSkipped: [NSCharacterSet characterSetWithCharactersInString: @" "]];
+
+  NSMutableData *returnData = [ NSMutableData new ];
+  
+
+
+	while ([scanner isAtEnd] == NO)
+	{
+		if([scanner scanHexInt: &i] && i <= 255 )
+		{
+			[ returnData appendBytes: &i length: 1 ];
+//			bytesScanned++;
+		}
+		else
+			return nil;
+	}
+  return returnData;
+}
+
+
+
+
 
 
 #pragma mark Shutdown
@@ -388,6 +480,7 @@ UInt16 convertNSStringToUInt16( NSString *theString )
   libusb_free_device_list(allUSBDevices, 1);    //free the list, unref the devices in it
   libusb_exit(NULL);                            //close the session
 }
+
 
 
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C018335E16237402007E6E28 /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C018335D16237402007E6E28 /* libusb-1.0.0.dylib */; };
-		C0183C1A16278BE600D0955C /* NSUserDefaults+CTColorSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C0183C1916278BE600D0955C /* NSUserDefaults+CTColorSupport.m */; };
 		C04D9E0A162342E000D83997 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D9E09162342E000D83997 /* Cocoa.framework */; };
 		C04D9E14162342E000D83997 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E12162342E000D83997 /* InfoPlist.strings */; };
 		C04D9E16162342E000D83997 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D9E15162342E000D83997 /* main.m */; };
@@ -16,13 +15,12 @@
 		C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D9E1C162342E000D83997 /* CTAppDelegate.m */; };
 		C04D9E20162342E100D83997 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E1E162342E100D83997 /* MainMenu.xib */; };
 		C0807DCF16298FD700A563B7 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C0807DCE16298FD700A563B7 /* Icon.icns */; };
+		C0EDAF82162C5F2400FB7993 /* CTConsoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EDAF81162C5F2400FB7993 /* CTConsoleController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C018335D16237402007E6E28 /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "/opt/local/lib/libusb-1.0.0.dylib"; sourceTree = "<absolute>"; };
 		C01833601623741E007E6E28 /* libusb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libusb.h; path = "/opt/local/include/libusb-1.0/libusb.h"; sourceTree = "<absolute>"; };
-		C0183C1816278BE600D0955C /* NSUserDefaults+CTColorSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+CTColorSupport.h"; sourceTree = "<group>"; };
-		C0183C1916278BE600D0955C /* NSUserDefaults+CTColorSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+CTColorSupport.m"; sourceTree = "<group>"; };
 		C04D9E05162342E000D83997 /* USB Toolbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB Toolbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04D9E09162342E000D83997 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C04D9E0C162342E000D83997 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -36,7 +34,9 @@
 		C04D9E1B162342E000D83997 /* CTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTAppDelegate.h; sourceTree = "<group>"; };
 		C04D9E1C162342E000D83997 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		C04D9E1F162342E100D83997 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C0807DCE16298FD700A563B7 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Icon.icns; sourceTree = "<group>"; };
+		C0807DCE16298FD700A563B7 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Images/Icon.icns; sourceTree = "<group>"; };
+		C0EDAF80162C5F2400FB7993 /* CTConsoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTConsoleController.h; sourceTree = "<group>"; };
+		C0EDAF81162C5F2400FB7993 /* CTConsoleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConsoleController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +92,10 @@
 		C04D9E0F162342E000D83997 /* USB Toolbox */ = {
 			isa = PBXGroup;
 			children = (
-				C0183C1816278BE600D0955C /* NSUserDefaults+CTColorSupport.h */,
-				C0183C1916278BE600D0955C /* NSUserDefaults+CTColorSupport.m */,
 				C04D9E1B162342E000D83997 /* CTAppDelegate.h */,
 				C04D9E1C162342E000D83997 /* CTAppDelegate.m */,
+				C0EDAF80162C5F2400FB7993 /* CTConsoleController.h */,
+				C0EDAF81162C5F2400FB7993 /* CTConsoleController.m */,
 				C04D9E1E162342E100D83997 /* MainMenu.xib */,
 				C01833601623741E007E6E28 /* libusb.h */,
 				C0807DD016298FEE00A563B7 /* Images */,
@@ -200,7 +200,7 @@
 			files = (
 				C04D9E16162342E000D83997 /* main.m in Sources */,
 				C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */,
-				C0183C1A16278BE600D0955C /* NSUserDefaults+CTColorSupport.m in Sources */,
+				C0EDAF82162C5F2400FB7993 /* CTConsoleController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

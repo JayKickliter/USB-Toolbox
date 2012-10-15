@@ -16,6 +16,7 @@
 
   IBOutlet NSWindow         *mainWindow;        
   IBOutlet NSTextView       *consoleTextView;
+  IBOutlet NSTextView       *inputTextView;
   IBOutlet NSUserDefaultsController *userDefaultsController;
 
     
@@ -25,11 +26,12 @@
 
   ssize_t                   numberOfUSBDevices;        // holds number of devices in list
   NSMutableAttributedString *outputTextStorage;        // a pointer to ouputTexView's textStorage
+  NSMutableAttributedString *inputTextStorage;        // a pointer to inputTextView's textStorage
 }
 
 @property (readwrite) NSInteger displayHexOrPlainText;
 @property (readwrite) NSInteger requestType;
-@property (readwrite) NSInteger requestDestinationAndType;
+@property (readwrite) NSInteger requestDestination;
 @property (copy)      NSColor   *consoleErrorTextColor;
 @property (copy)      NSColor   *consoleInformationTextColor;
 @property (copy)      NSColor   *consoleDataTextColor;
@@ -45,7 +47,7 @@
 - (void) printString: (NSString *) theString;
 - (void) printData: (unsigned char *) theData length: (int) theLength;
 - (void) printHexFromData: (unsigned char *) theData length: (int) theLength;
-- (void) printStringFromData: (unsigned char *) theData length: (int) theLength;
+- (void) printPlainTextFromData: (unsigned char *) theData length: (int) theLength;
 - (void) printLibUSBError: (int) theError withOperation: (NSString *) theOperation;
 
 
