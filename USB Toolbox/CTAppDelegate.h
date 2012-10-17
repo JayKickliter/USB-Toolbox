@@ -14,24 +14,27 @@
 
 @interface CTAppDelegate : NSObject <NSApplicationDelegate> {
 
-  IBOutlet NSWindow         *mainWindow;        
-  IBOutlet NSTextView       *consoleTextView;
-  IBOutlet NSTextView       *inputTextView;
+  IBOutlet NSWindow                 *mainWindow;        
+  IBOutlet NSTextView               *consoleTextView;
+  IBOutlet NSTextView               *inputTextView;
   IBOutlet NSUserDefaultsController *userDefaultsController;
 
     
-  libusb_device             **allUSBDevices;           // pointer to pointer of device, used to retrieve a list of devices
-  libusb_device_handle      *USBDeviceHandle;
-  libusb_device             *theUSBDevice;
+  libusb_device                     **allUSBDevices;            // pointer to pointer of device, used to retrieve a list of devices
+  libusb_device_handle              *USBDeviceHandle;
+  libusb_device                     *theUSBDevice;
+  ssize_t                           numberOfUSBDevices;         // holds number of devices in list
 
-  ssize_t                   numberOfUSBDevices;        // holds number of devices in list
-  NSMutableAttributedString *outputTextStorage;        // a pointer to ouputTexView's textStorage
-  NSMutableAttributedString *inputTextStorage;        // a pointer to inputTextView's textStorage
+  NSMutableAttributedString         *outputTextStorage;         // a pointer to ouputTexView's textStorage
+  NSMutableAttributedString         *inputTextStorage;          // a pointer to inputTextView's textStorage
 }
 
 @property (readwrite) NSInteger displayHexOrPlainText;
 @property (readwrite) NSInteger requestType;
 @property (readwrite) NSInteger requestDestination;
+@property (readwrite) NSInteger bulkTransferEndpoint;
+@property (readwrite) NSInteger bulkTransferDirection;
+@property (readwrite) NSInteger bulkTransferLength;
 @property (copy)      NSColor   *consoleErrorTextColor;
 @property (copy)      NSColor   *consoleInformationTextColor;
 @property (copy)      NSColor   *consoleDataTextColor;
@@ -44,16 +47,18 @@
 @property (copy)      NSString  *controlTransferLengthString;
 
 
-- (void) printString: (NSString *) theString;
-- (void) printData: (unsigned char *) theData length: (int) theLength;
-- (void) printHexFromData: (unsigned char *) theData length: (int) theLength;
-- (void) printPlainTextFromData: (unsigned char *) theData length: (int) theLength;
-- (void) printLibUSBError: (int) theError withOperation: (NSString *) theOperation;
+
+- (void) printString:           (NSString *)      theString;
+- (void) printData:             (unsigned char *) theData     length:       (int) theLength;
+- (void) printHexFromData:      (unsigned char *) theData     length:       (int) theLength;
+- (void) printPlainTextFromData:(unsigned char *) theData     length:       (int) theLength;
+- (void) printLibUSBError:      (int)             theError    withOperation:(NSString *) theOperation;
 
 
-- (IBAction) doUSBControlTransfer: (id) sender;
-- (IBAction) listAllAttachedUSBDevices: (id)sender;
-- (IBAction) clearConsole:(id)sender;
+- (IBAction) doBulkTransfer:            (id) sender;
+- (IBAction) doUSBControlTransfer:      (id) sender;
+- (IBAction) listAllAttachedUSBDevices: (id) sender;
+- (IBAction) clearConsole:              (id) sender;
 
 
 UInt8 convertNSStringToUInt8(NSString *theString);

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C018335E16237402007E6E28 /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C018335D16237402007E6E28 /* libusb-1.0.0.dylib */; };
+		C03266A1162E2830007A4F4E /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		C03266A2162E283F007A4F4E /* libusb-1.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; };
 		C04D9E0A162342E000D83997 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D9E09162342E000D83997 /* Cocoa.framework */; };
 		C04D9E14162342E000D83997 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E12162342E000D83997 /* InfoPlist.strings */; };
 		C04D9E16162342E000D83997 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D9E15162342E000D83997 /* main.m */; };
@@ -15,12 +16,24 @@
 		C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D9E1C162342E000D83997 /* CTAppDelegate.m */; };
 		C04D9E20162342E100D83997 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E1E162342E100D83997 /* MainMenu.xib */; };
 		C0807DCF16298FD700A563B7 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C0807DCE16298FD700A563B7 /* Icon.icns */; };
-		C0EDAF82162C5F2400FB7993 /* CTConsoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EDAF81162C5F2400FB7993 /* CTConsoleController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C032669F162E27B1007A4F4E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 12;
+			files = (
+				C03266A2162E283F007A4F4E /* libusb-1.0.0.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C018335D16237402007E6E28 /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "/opt/local/lib/libusb-1.0.0.dylib"; sourceTree = "<absolute>"; };
 		C01833601623741E007E6E28 /* libusb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libusb.h; path = "/opt/local/include/libusb-1.0/libusb.h"; sourceTree = "<absolute>"; };
+		C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "/Users/jaykickliter/Projects/USB Toolbox/Build/Products/Debug/../../../../../../../opt/local/lib/libusb-1.0.0.dylib"; sourceTree = "<absolute>"; };
 		C04D9E05162342E000D83997 /* USB Toolbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB Toolbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04D9E09162342E000D83997 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C04D9E0C162342E000D83997 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -35,8 +48,6 @@
 		C04D9E1C162342E000D83997 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		C04D9E1F162342E100D83997 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C0807DCE16298FD700A563B7 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Images/Icon.icns; sourceTree = "<group>"; };
-		C0EDAF80162C5F2400FB7993 /* CTConsoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTConsoleController.h; sourceTree = "<group>"; };
-		C0EDAF81162C5F2400FB7993 /* CTConsoleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConsoleController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,18 +56,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04D9E0A162342E000D83997 /* Cocoa.framework in Frameworks */,
-				C018335E16237402007E6E28 /* libusb-1.0.0.dylib in Frameworks */,
+				C03266A1162E2830007A4F4E /* libusb-1.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C01106A4162E1F0D0013D137 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C01833601623741E007E6E28 /* libusb.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		C04D9DFA162342E000D83997 = {
 			isa = PBXGroup;
 			children = (
 				C04D9E0F162342E000D83997 /* USB Toolbox */,
-				C0807DD11629902C00A563B7 /* Libraries */,
+				C01106A4162E1F0D0013D137 /* Headers */,
 				C04D9E08162342E000D83997 /* Frameworks */,
 				C04D9E06162342E000D83997 /* Products */,
 			);
@@ -82,6 +101,7 @@
 		C04D9E0B162342E000D83997 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */,
 				C04D9E0C162342E000D83997 /* AppKit.framework */,
 				C04D9E0D162342E000D83997 /* CoreData.framework */,
 				C04D9E0E162342E000D83997 /* Foundation.framework */,
@@ -94,10 +114,7 @@
 			children = (
 				C04D9E1B162342E000D83997 /* CTAppDelegate.h */,
 				C04D9E1C162342E000D83997 /* CTAppDelegate.m */,
-				C0EDAF80162C5F2400FB7993 /* CTConsoleController.h */,
-				C0EDAF81162C5F2400FB7993 /* CTConsoleController.m */,
 				C04D9E1E162342E100D83997 /* MainMenu.xib */,
-				C01833601623741E007E6E28 /* libusb.h */,
 				C0807DD016298FEE00A563B7 /* Images */,
 				C04D9E10162342E000D83997 /* Supporting Files */,
 			);
@@ -124,14 +141,6 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		C0807DD11629902C00A563B7 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				C018335D16237402007E6E28 /* libusb-1.0.0.dylib */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +149,8 @@
 			buildConfigurationList = C04D9E23162342E100D83997 /* Build configuration list for PBXNativeTarget "USB Toolbox" */;
 			buildPhases = (
 				C04D9E01162342E000D83997 /* Sources */,
+				C032669F162E27B1007A4F4E /* CopyFiles */,
+				C03266A3162E3885007A4F4E /* ShellScript */,
 				C04D9E02162342E000D83997 /* Frameworks */,
 				C04D9E03162342E000D83997 /* Resources */,
 			);
@@ -193,6 +204,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C03266A3162E3885007A4F4E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "# space separated list of libraries\nTARGETS=libusb-1.0.0.dylib\n\n\nEXECFILE=${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\nLIBPATH=${BUILT_PRODUCTS_DIR}/${SHARED_SUPPORT_FOLDER_PATH}\nNEWLIBPATH=@executable_path/../SharedSupport\n\n\nfor TARGET in ${TARGETS} ; do\n  LIBFILE=${LIBPATH}/${TARGET}\n  TARGETID=`otool -DX \"${LIBPATH}/$TARGET\"`\n  NEWTARGETID=${NEWLIBPATH}/${TARGET}\n  install_name_tool -id \"${NEWTARGETID}\" \"${LIBFILE}\"\n  install_name_tool -change ${TARGETID} ${NEWTARGETID} \"${EXECFILE}\"\ndone";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C04D9E01162342E000D83997 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -200,7 +228,6 @@
 			files = (
 				C04D9E16162342E000D83997 /* main.m in Sources */,
 				C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */,
-				C0EDAF82162C5F2400FB7993 /* CTConsoleController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +285,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -282,7 +309,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -297,8 +324,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/local/lib,
+					"\"$(SRCROOT)/USB Toolbox\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -313,8 +343,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/local/lib,
+					"\"$(SRCROOT)/USB Toolbox\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

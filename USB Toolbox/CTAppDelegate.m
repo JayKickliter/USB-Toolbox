@@ -22,6 +22,7 @@ NSString * const CTDefault_bRequest_Key                     = @"controlTransferR
 NSString * const CTDefault_wValue_Key                       = @"controlTransferValueString";
 NSString * const CTDefault_wIndex_Key                       = @"controlTransferIndexString";
 NSString * const CTDefault_wLength_Key                      = @"controlTransferLengthString";
+NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndpoint";
 
 @implementation CTAppDelegate
 
@@ -40,12 +41,18 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
 @synthesize controlTransferValueString;
 @synthesize controlTransferIndexString;
 @synthesize controlTransferLengthString;
+@synthesize bulkTransferEndpoint;
 
 
 #pragma mark Startup Methods
 
 + (void) initialize
 {
+  // Register defaults. If the application has never been run,
+  // these default values will be added to the application's preferences
+  // proper list, stored in ~/Library/Preferences. If you have run the
+  // application, it wont change anything.
+  //
   NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSArchiver archivedDataWithRootObject: [ NSColor blackColor ]], CTDefault_ConsoleBackgroundColor_Key,
                                  [NSArchiver archivedDataWithRootObject: [ NSColor redColor   ]], CTDefault_ConsoleErrorTextColor_Key,
@@ -60,6 +67,7 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
                                  @"0000", CTDefault_wValue_Key,
                                  @"0000", CTDefault_wIndex_Key,
                                  @"0000", CTDefault_wLength_Key,
+                                 @"0",    CTDefault_endpoint_Key,
                                  nil ];
 
   [[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
@@ -69,23 +77,58 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  // Get a couple pointers to the textviews' texStorage. that way, we can call:
+  //      [ outputTextStorage appendAttributedString: attrString ]
+  // instead of:
+  //      [[ consoleTextView textStorage ] appendAttributedString: attrString ]
+  //
   outputTextStorage = [ consoleTextView textStorage ];
   inputTextStorage  = [ inputTextView textStorage ];
 
+  // TODO: make sure this actually changes the font
+  //
   [ inputTextView setFont: [ NSFont fontWithName:@"Monaco" size:13.0 ]];
 
   [ self setupBindings ];
 
-  int result = libusb_init(NULL);                 //initialize a library session
+  // let's initialize a library session now, instead of every time we send
+  // a USB request/command.
+  // TODO: also come up with a way to open the desired USB device as soon
+  // as the user enters a valid VID and PID pair. It's pretty slow now to
+  // to send a reuqest, since the methods to do so have to open a device and
+  // close it before they return
+  //
+  // All LibUSB fucntions return an integer less zero for failure, and 0
+  // for success or a positive integer for sucess and return value, such
+  // as number of bytes transfered. There's a printLibUSBError method in this
+  // file, but it doesn't work as well as it should. The programmer has to check
+  // for an error. If there is one, then you call printLibUSBError. It would
+  // be best if to have a totally encapsulated helper method that checks for
+  // error, prints the error if there is one, and returns an int > 0 on sucess.
+  //
+  // TODO: write a complete checkLibUSBError
+  int result = libusb_init(NULL);
   if(result < 0) {
     [ self printLibUSBError:result withOperation:@"libusb_init(NULL)"];
   }
+  // it would be nice if this method also fillied the input and output textviews
+  // the strings from the last session. I suppose they could be bound to the
+  // defaults controller, but that seems like a bad idea, since they could be
+  // pretty long strings. also, I doubt that attributes could be saved.
+  //
+  // TODO: have the application load previous session's NSTextView attributedStrings from file
 }
 
 
 
 - (void) setupBindings
 {
+  // I have everything bound to userDefaultsController. Most views in the GUI are also bound to
+  // userDefaultsController. That seems a bit janky to me, but the UI textFields were't updating
+  // properly when bound straigth to CTAppDelegate.
+  //
+  // TODO: figure out bindings
+  //
   [ consoleTextView bind: @"backgroundColor"
                 toObject: userDefaultsController
              withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_ConsoleBackgroundColor_Key ]
@@ -168,6 +211,10 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
                 toObject: userDefaultsController
              withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bmRequestDestination_Key ]
                  options: nil ];
+  [ self            bind: CTDefault_endpoint_Key
+                toObject: userDefaultsController
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_endpoint_Key ]
+                 options: nil ];
 }
 
 
@@ -183,30 +230,50 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
 
 - (IBAction) doUSBControlTransfer: (id) sender
 {
-  UInt16  deviceVID, devicePID, wIndex, wLength, wValue;
-  UInt8   bRequest, bmRequestType;
+  // result is used to hold the return int from LibUSB calls, and either
+  // use it to check the error code (if result < 0), or tell us
+  // how many bytes were acually transferd, since it may be different
+  // than what we requested.
+  //
   int     result;
 
-  deviceVID     = convertNSStringToUInt16( deviceVIDString );
-  devicePID     = convertNSStringToUInt16( devicePIDString );
-  bRequest      = convertNSStringToUInt8( controlTransferRequestString );
-  wIndex        = convertNSStringToUInt16( controlTransferIndexString );
-  wLength       = [ controlTransferLengthString intValue ];
-  wValue        = convertNSStringToUInt8( controlTransferValueString );
-  bmRequestType = (UInt8) requestType | requestDestination;
+  // these are declared as UInt16's and UInt8's, since they will be used
+  // to form USB packets, and need to have exact bitlengths
+  //
+  UInt16  deviceVID     = convertNSStringToUInt16( deviceVIDString );
+  UInt16  devicePID     = convertNSStringToUInt16( devicePIDString );
+  UInt16  wIndex        = convertNSStringToUInt16( controlTransferIndexString );
+  UInt16  wLength       = [ controlTransferLengthString intValue ];
+  UInt16  wValue        = convertNSStringToUInt16( controlTransferValueString );
+  UInt8   bRequest      = convertNSStringToUInt8( controlTransferRequestString );
+  UInt8   bmRequestType = (UInt8) requestType | requestDestination;
 
-
+  // I chose an arbitray length of 4096
+  // TODO: figure out how big data[] should be
+  //
   unsigned char data[4096];
 
 
-  if ( !(self.requestType & 0x80) ) { // is it host -> device request?    
+  // self.requestType contains both the direction of the request, and
+  // the type of request. It is bound to an NSMatrix via the defaults
+  // controller. If bit 7 in self.requestType is a one, then it is
+  // and IN request
+  //
+  if ( !(self.requestType & 0x80) ) { // is it an OUT (host -> device) request?    
 
-    NSString      *inputString    = [ inputTextStorage string ];
-    NSData        *inputData      = [ self dataFromHexString: inputString ];
-    NSUInteger    inputLength       = [ inputData length ];
+    NSString      *inputHexString = [ inputTextStorage string ];                // TODO: create a method to encapulate this and the next line in one call
+    NSData        *inputData      = [ self dataFromHexString: inputHexString ];
+    NSUInteger    inputLength     = [ inputData length ];
     unsigned char *inputDataBytes = (unsigned char *) [ inputData bytes ];
 
-    if (  inputLength < wLength ) {
+    // What if we don't want to send all the hex bytes we have in the
+    // input text view? Then we set the length in the Length textField.
+    // What if our request length text field is larger than the number
+    // hex bytes in the input text view? Then we just reduce the value
+    // in the text field to match the number of bytes we actually have
+    // available to send
+    //
+    if (  inputLength < wLength ) {                                             // TODO: i just noticed that this method might send all avalbe hex bytes, and not just the number requested
       wLength = inputLength;
       [self setControlTransferLengthString: [ NSString stringWithFormat: @"%d", wLength ]];
     }
@@ -214,17 +281,40 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
     memcpy(data, inputDataBytes, wLength);
   }
 
+  // give some feed back of what transfer is about to take place
+  //
+  [self printString: [ NSString stringWithFormat:
+                      @"Control transfer VID=%04x PID=%04x bmRequestType=%02x bRequest=%02x wValue=%04x wIndex=%04x wLength=%04x\n",
+                      deviceVID,
+                      devicePID,
+                      bmRequestType,
+                      bRequest,
+                      wValue,
+                      wIndex,
+                      wLength ]
+      withTextColor: self.consoleInformationTextColor ];
 
-  [self printString: [ NSString stringWithFormat: @"Control transfer VID=%04x PID=%04x bmRequestType=%02x bRequest=%02x wValue=%04x wIndex=%04x wLength=%04x\n", deviceVID, devicePID, bmRequestType, bRequest, wValue, wIndex, wLength ] withTextColor: self.consoleInformationTextColor ];
+  // Open a device handle. This should happen earlier, since opening and closing
+  // device handles is slow for some reason. Perhaps add a methid to open a device
+  // handle as soon as a valid one is entered. Or maybe just put a click button.
+  //
+  // Also, the LibUSB documentation says that this function is only meant for
+  // for a quick hack.
+  //
+  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, deviceVID, devicePID);            // TODO: use the proper fucntion to open device handles
 
-  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, deviceVID, devicePID);
-
+  // the printLibUSBError method doesn't work with libusb_open_device_with_vid_pid
+  // so we print a custom error method. This should be fixed.
+  //
   if ( USBDeviceHandle == NULL ) {
     [ self printString: @"ERROR: " withTextColor: self.consoleErrorTextColor ];
     [ self printString: @"Invalid VID or PID\n\n"];
     return;
   }
 
+  // libusb_control_transfer will return a negative number on error, or
+  // the actual number of bytes transfered.
+  //
   result = libusb_control_transfer( USBDeviceHandle,
                                    bmRequestType,
                                    bRequest,
@@ -234,6 +324,8 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
                                    wLength,
                                    1000 );
 
+  // check result for error or actual length transfered
+  //
   if ( result < 0) {
     [ self printLibUSBError: result withOperation: @"libusb_control_transfer" ];
   } else {
@@ -244,27 +336,200 @@ NSString * const CTDefault_wLength_Key                      = @"controlTransferL
 
 
 
-- (IBAction) listAllAttachedUSBDevices: (id)sender
+- (IBAction) doBulkTransfer:(id)sender
 {
-  int i, result;
-  struct libusb_device_descriptor deviceDescriptor;
-  
-  NSMutableString *output = [ NSMutableString new];
-  numberOfUSBDevices = libusb_get_device_list(NULL, &allUSBDevices);                           //gets the list of devices;
-  for ( i = 0; i < numberOfUSBDevices; i++ ) {
-    [ output appendFormat: @"%2d: ", i ];
-    theUSBDevice = allUSBDevices[i];
-    result = libusb_get_device_descriptor(theUSBDevice, &deviceDescriptor);
-    if ( result < 0) {
-      [output appendString: @"failed to get device descriptor\n" ];
-    } else {
-      [ output appendFormat:@"VID: %04x  PID: %04x\n", deviceDescriptor.idVendor, deviceDescriptor.idProduct];
+  UInt16  deviceVID = convertNSStringToUInt16( self.deviceVIDString );
+  UInt16  devicePID = convertNSStringToUInt16( self.devicePIDString );
+
+  // unsigned char endpoint actually contains both the endpoint number in the lower bits,
+  // and the direction in the uppermost bit
+  //
+  unsigned char endpoint  = self.bulkTransferDirection | self.bulkTransferEndpoint;
+  int           length    = (int) self.bulkTransferLength;
+  int           dataTransfer;
+  int           result;
+
+  // I'm having problems with buffer overflow, so I bumped the size of data[]
+  // quite considerable, but the problem won't go away
+  //
+  // TODO: figure out the problem with overflows
+  //
+  unsigned char data[16384];
+
+
+  // See [ self doControlTransfer ] for an explanation of this, as
+  // they are pretty similar.
+  //
+  if ( !(self.bulkTransferDirection & 0x80) ) {     // This is NOT an out transfer, therefor it's an IN transfer
+
+    NSString      *inputString    = [ inputTextStorage string ];
+    NSData        *inputData      = [ self dataFromHexString: inputString ];
+    NSUInteger    inputLength     = [ inputData length ];
+    unsigned char *inputDataBytes = (unsigned char *) [ inputData bytes ];
+
+    if (  inputLength < length ) {
+      length = (int) inputLength;
+      self.bulkTransferLength = length;
     }
+    // copy the data into a local (to this method) buffer. Can't remember why I did this,
+    // and it might not be necessary.
+    //
+    memcpy(data, inputDataBytes, length);
   }
-  [ self printString: output ];
-  [ self printNewLine: 1 ];
+
+  // Give some feedback before the transfer.
+  //
+  [self printString: [ NSString stringWithFormat:
+                      @"Bulk transfer VID=%04x PID=%04x Endpoint=%02x Length=%d...\n",
+                      deviceVID,
+                      devicePID,
+                      endpoint,
+                      length ]
+      withTextColor: self.consoleInformationTextColor ];
+
+  // See [ self doControlTransfer ] for an explanation of why this is stupid.
+  //
+  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, deviceVID, devicePID);
+
+  if ( USBDeviceHandle == NULL ) {
+    [ self printString: @"ERROR: " withTextColor: self.consoleErrorTextColor ];
+    [ self printString: @"Invalid VID or PID\n\n"];
+    return;
+  }
+
+  // Check for error.
+  //
+  result = libusb_claim_interface( USBDeviceHandle, 0 );
+  if ( result != 0) {
+    [ self printLibUSBError: result withOperation: @"libusb_claim_interface" ];
+  }
+
+  // Do the bulk transfer.
+  //
+  result = libusb_bulk_transfer	(USBDeviceHandle,
+                                 endpoint,
+                                 data,
+                                 length,
+                                 &dataTransfer,
+                                 1000 );
+
+  // Check for error, or display feedback on success before printing the acual data.
+  //
+  if ( result < 0) {
+    [ self printLibUSBError: result withOperation: @"libusb_bulk_transfer" ];
+  } else {
+    [ self printString: [ NSString stringWithFormat: @"...actual transfer length: %d\n", dataTransfer ] withTextColor: self.consoleInformationTextColor ];
+    [self printData: data length: dataTransfer];
+  }
+
+  // Release the interface.
+  //
+  // TODO: read more on interfaces
+  //
+  result = libusb_release_interface(USBDeviceHandle, 0);
+  // CHeck for error.
+  //
+  if ( result < 0) {
+    [ self printLibUSBError: result withOperation: @"libusb_release_interface" ];
+  }
+
+  // Close the handle.
+  //
+  libusb_close( USBDeviceHandle );
 }
 
+
+
+- (IBAction) listAllAttachedUSBDevices: (id)sender
+{
+  UInt8   theBus;
+  UInt8   theAddress;
+  int     i;
+  int     result;
+  struct  libusb_device_descriptor  deviceDescriptor;
+  struct  libusb_device_handle      *deviceHandle;
+
+  // libusb_get_string_descriptor_ascii requires buffers to store
+  // the string descriptor.
+  const int stringDesciptorBufferLength = 64;
+  unsigned char theManufacturerStringDescriptorBuffer [stringDesciptorBufferLength];
+  unsigned char theDeviceStringDescriptorBuffer       [stringDesciptorBufferLength];
+
+  NSMutableString *outputString ;
+  NSString        *theManufacturer;
+  NSString        *theDeviceName;
+
+  // Get a list of all USB devices. Also, libusb_get_device_list
+  // returns the total number of devices.
+  //
+  numberOfUSBDevices = libusb_get_device_list(NULL, &allUSBDevices);
+
+  // Iterate through the list and print them to the console.
+  //
+  for ( i = 0; i < numberOfUSBDevices; i++ ) {
+    //
+    // To speed up display of all devices we're printing the output
+    // for each device in the device list, instead of creating a
+    // single string for all devices and printing in one shot.
+    // This doesn't appear to make any difference.
+    //
+
+    // Make a new string for the current device.
+    //
+    outputString = [ NSMutableString new];
+
+
+    theUSBDevice  = allUSBDevices[i];
+    theBus        = libusb_get_bus_number(theUSBDevice);
+    theAddress    = libusb_get_device_address(theUSBDevice);
+
+    result = libusb_open( theUSBDevice,
+                          &deviceHandle );
+    if ( result == 0 ) {
+      result = libusb_get_string_descriptor_ascii	( deviceHandle,
+                                                    1,
+                                                    theManufacturerStringDescriptorBuffer,
+                                                    stringDesciptorBufferLength );
+      if ( result >= 0 ) {
+        // result >= 0, so not an error
+        //
+        // set last byte of the c string to 0 to make a correct null terminated string
+        //
+        theManufacturerStringDescriptorBuffer[result] = 0;
+        theManufacturer = [ NSString stringWithCString: (const char *) theManufacturerStringDescriptorBuffer encoding:NSASCIIStringEncoding ];
+      } else {
+        // we got an error, and weren't able to get the string descriptor
+        //
+        theManufacturer = @"Unknown Manufacturer";
+      }
+
+      result = libusb_get_string_descriptor_ascii	( deviceHandle,
+                                                   2,
+                                                   theDeviceStringDescriptorBuffer,
+                                                   stringDesciptorBufferLength );
+      if ( result >= 0) {
+        theDeviceName = [ NSString stringWithCString: (const char *) theDeviceStringDescriptorBuffer encoding:NSASCIIStringEncoding ];
+        [ outputString appendFormat: @"%@\n", theDeviceName ];
+      } else {
+        [ outputString appendString: @"Unknown Device\n" ];
+      }
+
+      libusb_close( deviceHandle );
+      
+    }
+
+    result = libusb_get_device_descriptor(theUSBDevice, &deviceDescriptor);
+    if ( result < 0) {
+      [outputString appendString: @"  Failed to get device a descriptor for this device\n" ];
+    } else {
+      [ outputString appendFormat:@"  Manufacturer: %@\n           Bus: %3d\n       Address: %d3\n           VID: %04X\n           PID: %04X\n", theManufacturer, theBus, theAddress, deviceDescriptor.idVendor, deviceDescriptor.idProduct];
+    }
+    [ self printString: outputString withTextColor: self.consoleInformationTextColor ];
+  }
+
+  [ self printNewLine: 1 ];
+
+}
 
 
 
@@ -446,21 +711,17 @@ UInt16 convertNSStringToUInt16( NSString *theString )
 - (NSData *) dataFromHexString: (NSString *) theString
 {
   unsigned int i;
-//  int bytesScanned = 0;
 
   NSScanner* scanner = [NSScanner scannerWithString: theString ];
 	[scanner setCharactersToBeSkipped: [NSCharacterSet characterSetWithCharactersInString: @" "]];
 
   NSMutableData *returnData = [ NSMutableData new ];
-  
-
 
 	while ([scanner isAtEnd] == NO)
 	{
 		if([scanner scanHexInt: &i] && i <= 255 )
 		{
 			[ returnData appendBytes: &i length: 1 ];
-//			bytesScanned++;
 		}
 		else
 			return nil;
