@@ -363,7 +363,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   // and the direction in the uppermost bit
   //
   unsigned char endpoint  = [ bulkTransferDirection unsignedCharValue ] | [ bulkTransferEndpoint unsignedCharValue ];
-  int           length    = [ bulkTransferLength intValue ];
+  UInt16        wLength   = [ bulkTransferLength intValue ];
   int           dataTransfer;
   int           result;
 
@@ -385,14 +385,14 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
     NSUInteger    inputLength     = [ inputData length ];
     unsigned char *inputDataBytes = (unsigned char *) [ inputData bytes ];
 
-    if (  inputLength < length ) {
-      length = (int) inputLength;
+    if (  inputLength < wLength ) {
+      wLength = (int) inputLength;
       [[ userDefaultsController values ] setValue: [ NSNumber numberWithUnsignedInteger: inputLength ] forKey: CTDefault_bulkTransferLength_Key ];
     }
     // copy the data into a local (to this method) buffer. Can't remember why I did this,
     // and it might not be necessary.
     //
-    memcpy(data, inputDataBytes, length);
+    memcpy(data, inputDataBytes, wLength);
   }
 
   // Give some feedback before the transfer.
@@ -402,7 +402,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
                       [deviceVID unsignedIntValue],
                       devicePID,
                       endpoint,
-                      length ]
+                      wLength ]
       withTextColor: [ self consoleInformationTextColor ]];
 
   // See [ self doControlTransfer ] for an explanation of why this is stupid.
@@ -427,7 +427,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   result = libusb_bulk_transfer	(USBDeviceHandle,
                                  endpoint,
                                  data,
-                                 length,
+                                 wLength,
                                  &dataTransfer,
                                  1000 );
 
