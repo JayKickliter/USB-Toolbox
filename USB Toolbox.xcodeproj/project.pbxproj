@@ -15,6 +15,8 @@
 		C04D9E1A162342E000D83997 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E18162342E000D83997 /* Credits.rtf */; };
 		C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D9E1C162342E000D83997 /* CTAppDelegate.m */; };
 		C04D9E20162342E100D83997 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E1E162342E100D83997 /* MainMenu.xib */; };
+		C07E01FA162EF7F40007D958 /* CTNumberToHexStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C07E01F9162EF7F40007D958 /* CTNumberToHexStringTransformer.m */; };
+		C07E01FD162F31F30007D958 /* CTNumberToStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C07E01FC162F31F30007D958 /* CTNumberToStringFormatter.m */; };
 		C0807DCF16298FD700A563B7 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C0807DCE16298FD700A563B7 /* Icon.icns */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,10 @@
 		C04D9E1B162342E000D83997 /* CTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTAppDelegate.h; sourceTree = "<group>"; };
 		C04D9E1C162342E000D83997 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		C04D9E1F162342E100D83997 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C07E01F8162EF7F40007D958 /* CTNumberToHexStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTNumberToHexStringTransformer.h; path = ../CTNumberToHexStringTransformer.h; sourceTree = "<group>"; };
+		C07E01F9162EF7F40007D958 /* CTNumberToHexStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTNumberToHexStringTransformer.m; path = ../CTNumberToHexStringTransformer.m; sourceTree = "<group>"; };
+		C07E01FB162F31F30007D958 /* CTNumberToStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNumberToStringFormatter.h; sourceTree = "<group>"; };
+		C07E01FC162F31F30007D958 /* CTNumberToStringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNumberToStringFormatter.m; sourceTree = "<group>"; };
 		C0807DCE16298FD700A563B7 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Images/Icon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,10 @@
 			children = (
 				C04D9E1B162342E000D83997 /* CTAppDelegate.h */,
 				C04D9E1C162342E000D83997 /* CTAppDelegate.m */,
+				C07E01F8162EF7F40007D958 /* CTNumberToHexStringTransformer.h */,
+				C07E01F9162EF7F40007D958 /* CTNumberToHexStringTransformer.m */,
+				C07E01FB162F31F30007D958 /* CTNumberToStringFormatter.h */,
+				C07E01FC162F31F30007D958 /* CTNumberToStringFormatter.m */,
 				C04D9E1E162342E100D83997 /* MainMenu.xib */,
 				C0807DD016298FEE00A563B7 /* Images */,
 				C04D9E10162342E000D83997 /* Supporting Files */,
@@ -228,6 +238,8 @@
 			files = (
 				C04D9E16162342E000D83997 /* main.m in Sources */,
 				C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */,
+				C07E01FA162EF7F40007D958 /* CTNumberToHexStringTransformer.m in Sources */,
+				C07E01FD162F31F30007D958 /* CTNumberToStringFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +340,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -347,6 +360,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
