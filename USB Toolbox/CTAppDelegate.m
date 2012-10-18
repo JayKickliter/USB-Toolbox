@@ -7,6 +7,8 @@
 //
 
 #import "CTAppDelegate.h"
+#import "CTNumberToHexStringTransformer.h"
+#import "CTNumberToStringFormatter.h"
 
 #pragma mark Defaults Keys
 NSString * const CTDefault_ConsoleBackgroundColor_Key       = @"consoleBackgroundColor";
@@ -14,15 +16,16 @@ NSString * const CTDefault_ConsoleErrorTextColor_Key        = @"consoleErrorText
 NSString * const CTDefault_ConsoleDataTextColor_Key         = @"consoleDataTextColor";
 NSString * const CTDefault_ConsoleInformationTextColor_Key  = @"consoleInformationTextColor";
 NSString * const CTDefault_DisplayHexOrPlainText_Key        = @"displayHexOrPlainText";
-NSString * const CTDefault_VID_Key                          = @"deviceVIDString";
-NSString * const CTDefault_PID_Key                          = @"devicePIDString";
+NSString * const CTDefault_VID_Key                          = @"deviceVID";
+NSString * const CTDefault_PID_Key                          = @"devicePID";
 NSString * const CTDefault_bmRequestType_Key                = @"requestType";
 NSString * const CTDefault_bmRequestDestination_Key         = @"requestDestination";
-NSString * const CTDefault_bRequest_Key                     = @"controlTransferRequestString";
-NSString * const CTDefault_wValue_Key                       = @"controlTransferValueString";
-NSString * const CTDefault_wIndex_Key                       = @"controlTransferIndexString";
-NSString * const CTDefault_wLength_Key                      = @"controlTransferLengthString";
+NSString * const CTDefault_bRequest_Key                     = @"controlTransferRequest";
+NSString * const CTDefault_wValue_Key                       = @"controlTransferValue";
+NSString * const CTDefault_wIndex_Key                       = @"controlTransferIndex";
+NSString * const CTDefault_wLength_Key                      = @"controlTransferLength";
 NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndpoint";
+NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLength";
 
 @implementation CTAppDelegate
 
@@ -35,14 +38,15 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
 @synthesize consoleInformationTextColor;
 @synthesize consoleDataTextColor;
 @synthesize consoleBackgroundColor;
-@synthesize deviceVIDString;
-@synthesize devicePIDString;
-@synthesize controlTransferRequestString;
-@synthesize controlTransferValueString;
-@synthesize controlTransferIndexString;
-@synthesize controlTransferLengthString;
+@synthesize deviceVID;
+@synthesize devicePID;
+@synthesize controlTransferRequest;
+@synthesize controlTransferValue;
+@synthesize controlTransferIndex;
+@synthesize controlTransferLength;
 @synthesize bulkTransferEndpoint;
-
+@synthesize bulkTransferDirection;
+@synthesize bulkTransferLength;
 
 #pragma mark Startup Methods
 
@@ -58,19 +62,33 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
                                  [NSArchiver archivedDataWithRootObject: [ NSColor redColor   ]], CTDefault_ConsoleErrorTextColor_Key,
                                  [NSArchiver archivedDataWithRootObject: [ NSColor greenColor ]], CTDefault_ConsoleDataTextColor_Key,
                                  [NSArchiver archivedDataWithRootObject: [ NSColor grayColor  ]], CTDefault_ConsoleInformationTextColor_Key,
-                                 @"0",    CTDefault_DisplayHexOrPlainText_Key,
-                                 @"0000", CTDefault_VID_Key,
-                                 @"0000", CTDefault_PID_Key,
-                                 @"0",  CTDefault_bmRequestType_Key,
-                                 @"0",    CTDefault_bmRequestDestination_Key,
-                                 @"00"  , CTDefault_bRequest_Key,
-                                 @"0000", CTDefault_wValue_Key,
-                                 @"0000", CTDefault_wIndex_Key,
-                                 @"0000", CTDefault_wLength_Key,
-                                 @"0",    CTDefault_endpoint_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_DisplayHexOrPlainText_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_VID_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_PID_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_bmRequestType_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_bmRequestDestination_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_bRequest_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_wValue_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_wIndex_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_wLength_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_endpoint_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_bulkTransferLength_Key,
                                  nil ];
 
   [[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
+
+  // Register value transformers
+  //
+  [ self initialiseValueTransformers ];
+}
+
++ (void) initialiseValueTransformers {
+	CTNumberToHexStringTransformer * numberToHexStringFormatter = [[CTNumberToHexStringTransformer alloc] init];
+	[CTNumberToHexStringTransformer setValueTransformer: numberToHexStringFormatter
+                                              forName:@"NumberToHexStringFormatter"];
+  CTNumberToStringFormatter * numberToStringFormatter = [[CTNumberToStringFormatter alloc] init];
+	[CTNumberToHexStringTransformer setValueTransformer: numberToStringFormatter
+                                              forName:@"NumberToStringFormatter"];
 }
 
 
@@ -176,7 +194,6 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
                 toObject: userDefaultsController
              withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_VID_Key ]
                  options: nil ];
-  
   [ self            bind: CTDefault_bRequest_Key
                 toObject: userDefaultsController
              withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bRequest_Key ]
@@ -215,6 +232,10 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
                 toObject: userDefaultsController
              withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_endpoint_Key ]
                  options: nil ];
+  [ self            bind: CTDefault_bulkTransferLength_Key
+                toObject: userDefaultsController
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bulkTransferLength_Key ]
+                 options: nil ];
 }
 
 
@@ -240,13 +261,13 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   // these are declared as UInt16's and UInt8's, since they will be used
   // to form USB packets, and need to have exact bitlengths
   //
-  UInt16  deviceVID     = convertNSStringToUInt16( deviceVIDString );
-  UInt16  devicePID     = convertNSStringToUInt16( devicePIDString );
-  UInt16  wIndex        = convertNSStringToUInt16( controlTransferIndexString );
-  UInt16  wLength       = [ controlTransferLengthString intValue ];
-  UInt16  wValue        = convertNSStringToUInt16( controlTransferValueString );
-  UInt8   bRequest      = convertNSStringToUInt8( controlTransferRequestString );
-  UInt8   bmRequestType = (UInt8) requestType | requestDestination;
+  UInt16  VID       = [ deviceVID unsignedShortValue ];
+  UInt16  PID       = [ devicePID unsignedShortValue ];
+  UInt16  wIndex    = [ controlTransferIndex unsignedShortValue ];
+  UInt16  wLength   = [ controlTransferLength unsignedShortValue ];
+  UInt16  wValue    = [ controlTransferIndex unsignedShortValue ];
+  UInt8   bRequest  = [ controlTransferRequest unsignedCharValue ];
+  UInt8   bmRequest = [ requestType unsignedCharValue ] | [ requestDestination unsignedCharValue ];
 
   // I chose an arbitray length of 4096
   // TODO: figure out how big data[] should be
@@ -259,7 +280,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   // controller. If bit 7 in self.requestType is a one, then it is
   // and IN request
   //
-  if ( !(self.requestType & 0x80) ) { // is it an OUT (host -> device) request?    
+  if ( !( bmRequest & 0x80) ) { // is it an OUT (host -> device) request?    
 
     NSString      *inputHexString = [ inputTextStorage string ];                // TODO: create a method to encapulate this and the next line in one call
     NSData        *inputData      = [ self dataFromHexString: inputHexString ];
@@ -274,25 +295,25 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
     // available to send
     //
     if (  inputLength < wLength ) {                                             // TODO: i just noticed that this method might send all avalbe hex bytes, and not just the number requested
+      [[ userDefaultsController values ] setValue: [ NSNumber numberWithUnsignedInteger: inputLength ] forKey: CTDefault_wLength_Key ];
       wLength = inputLength;
-      [self setControlTransferLengthString: [ NSString stringWithFormat: @"%d", wLength ]];
     }
 
-    memcpy(data, inputDataBytes, wLength);
+    memcpy(data, inputDataBytes, [ controlTransferLength intValue ]);
   }
 
   // give some feed back of what transfer is about to take place
   //
   [self printString: [ NSString stringWithFormat:
                       @"Control transfer VID=%04x PID=%04x bmRequestType=%02x bRequest=%02x wValue=%04x wIndex=%04x wLength=%04x\n",
-                      deviceVID,
-                      devicePID,
-                      bmRequestType,
+                      VID,
+                      PID,
+                      bmRequest,
                       bRequest,
                       wValue,
                       wIndex,
                       wLength ]
-      withTextColor: self.consoleInformationTextColor ];
+      withTextColor: [ self consoleInformationTextColor ]];
 
   // Open a device handle. This should happen earlier, since opening and closing
   // device handles is slow for some reason. Perhaps add a methid to open a device
@@ -301,13 +322,13 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   // Also, the LibUSB documentation says that this function is only meant for
   // for a quick hack.
   //
-  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, deviceVID, devicePID);            // TODO: use the proper fucntion to open device handles
+  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, VID, PID );            // TODO: use the proper fucntion to open device handles
 
   // the printLibUSBError method doesn't work with libusb_open_device_with_vid_pid
   // so we print a custom error method. This should be fixed.
   //
   if ( USBDeviceHandle == NULL ) {
-    [ self printString: @"ERROR: " withTextColor: self.consoleErrorTextColor ];
+    [ self printString: @"ERROR: " withTextColor: [ self consoleErrorTextColor ]];
     [ self printString: @"Invalid VID or PID\n\n"];
     return;
   }
@@ -316,7 +337,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   // the actual number of bytes transfered.
   //
   result = libusb_control_transfer( USBDeviceHandle,
-                                   bmRequestType,
+                                   bmRequest,
                                    bRequest,
                                    wValue,
                                    wIndex,
@@ -336,16 +357,13 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
 
 
 
-- (IBAction) doBulkTransfer:(id)sender
+- (IBAction) doBulkTransfer: (id) sender
 {
-  UInt16  deviceVID = convertNSStringToUInt16( self.deviceVIDString );
-  UInt16  devicePID = convertNSStringToUInt16( self.devicePIDString );
-
   // unsigned char endpoint actually contains both the endpoint number in the lower bits,
   // and the direction in the uppermost bit
   //
-  unsigned char endpoint  = self.bulkTransferDirection | self.bulkTransferEndpoint;
-  int           length    = (int) self.bulkTransferLength;
+  unsigned char endpoint  = [ bulkTransferDirection unsignedCharValue ] | [ bulkTransferEndpoint unsignedCharValue ];
+  int           length    = [ bulkTransferLength intValue ];
   int           dataTransfer;
   int           result;
 
@@ -360,7 +378,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   // See [ self doControlTransfer ] for an explanation of this, as
   // they are pretty similar.
   //
-  if ( !(self.bulkTransferDirection & 0x80) ) {     // This is NOT an out transfer, therefor it's an IN transfer
+  if ( !( [ bulkTransferDirection unsignedCharValue ] & 0x80) ) {     // This is NOT an out transfer, therefor it's an IN transfer
 
     NSString      *inputString    = [ inputTextStorage string ];
     NSData        *inputData      = [ self dataFromHexString: inputString ];
@@ -369,7 +387,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
 
     if (  inputLength < length ) {
       length = (int) inputLength;
-      self.bulkTransferLength = length;
+      [[ userDefaultsController values ] setValue: [ NSNumber numberWithUnsignedInteger: inputLength ] forKey: CTDefault_bulkTransferLength_Key ];
     }
     // copy the data into a local (to this method) buffer. Can't remember why I did this,
     // and it might not be necessary.
@@ -380,19 +398,19 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   // Give some feedback before the transfer.
   //
   [self printString: [ NSString stringWithFormat:
-                      @"Bulk transfer VID=%04x PID=%04x Endpoint=%02x Length=%d...\n",
-                      deviceVID,
+                      @"Bulk transfer VID=%04x PID=%4@ Endpoint=%02x Length=%d...\n",
+                      [deviceVID unsignedIntValue],
                       devicePID,
                       endpoint,
                       length ]
-      withTextColor: self.consoleInformationTextColor ];
+      withTextColor: [ self consoleInformationTextColor ]];
 
   // See [ self doControlTransfer ] for an explanation of why this is stupid.
   //
-  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, deviceVID, devicePID);
+  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, [deviceVID unsignedIntValue], [ devicePID unsignedIntValue ]);
 
   if ( USBDeviceHandle == NULL ) {
-    [ self printString: @"ERROR: " withTextColor: self.consoleErrorTextColor ];
+    [ self printString: @"ERROR: " withTextColor: [ self consoleErrorTextColor ]];
     [ self printString: @"Invalid VID or PID\n\n"];
     return;
   }
@@ -418,7 +436,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
   if ( result < 0) {
     [ self printLibUSBError: result withOperation: @"libusb_bulk_transfer" ];
   } else {
-    [ self printString: [ NSString stringWithFormat: @"...actual transfer length: %d\n", dataTransfer ] withTextColor: self.consoleInformationTextColor ];
+    [ self printString: [ NSString stringWithFormat: @"...actual transfer length: %d\n", dataTransfer ] withTextColor: [ self consoleInformationTextColor ]];
     [self printData: data length: dataTransfer];
   }
 
@@ -524,7 +542,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
     } else {
       [ outputString appendFormat:@"  Manufacturer: %@\n           Bus: %3d\n       Address: %d3\n           VID: %04X\n           PID: %04X\n", theManufacturer, theBus, theAddress, deviceDescriptor.idVendor, deviceDescriptor.idProduct];
     }
-    [ self printString: outputString withTextColor: self.consoleInformationTextColor ];
+    [ self printString: outputString withTextColor: [ self consoleInformationTextColor ]];
   }
 
   [ self printNewLine: 1 ];
@@ -552,7 +570,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
 {
   NSColor *textColor;
   if ( theColor == nil ) {
-    textColor = self.consoleDataTextColor;
+    textColor = [ self consoleDataTextColor ];
   } else {
     textColor = theColor;
   }
@@ -571,7 +589,7 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
 
 - (void) printData: (unsigned char *) theData length: (int) theLength
 {
-  switch ( displayHexOrPlainText ) {
+  switch ( [ displayHexOrPlainText integerValue ] ) {
     case CT_DISPLAY_HEX:
       [ self printHexFromData: theData length: theLength ];
       break;
@@ -653,11 +671,11 @@ NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndp
 
 - (void) printLibUSBError: (int) theError withOperation: (NSString *) theOperation
 {
-  [ self printString: @"ERROR: " withTextColor: self.consoleErrorTextColor ];
+  [ self printString: @"ERROR: " withTextColor: [ self consoleErrorTextColor ]];
   [ self printString: @"LibUSB function " ];
-  [ self printString: theOperation withTextColor: self.consoleInformationTextColor ];
+  [ self printString: theOperation withTextColor: [ self consoleInformationTextColor ]];
   [ self printString: @" returned " ];
-  [ self printString: [NSString stringWithCString: libusb_error_name(theError) encoding: NSUTF8StringEncoding ] withTextColor: self.consoleInformationTextColor ];
+  [ self printString: [NSString stringWithCString: libusb_error_name(theError) encoding: NSUTF8StringEncoding ] withTextColor: [ self consoleInformationTextColor ]];
   [ self printNewLine: 2 ];
 }
 
