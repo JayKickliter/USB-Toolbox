@@ -256,7 +256,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   // how many bytes were acually transferd, since it may be different
   // than what we requested.
   //
-  int     result;
+  int     error;
 
   // these are declared as UInt16's and UInt8's, since they will be used
   // to form USB packets, and need to have exact bitlengths
@@ -336,7 +336,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   // libusb_control_transfer will return a negative number on error, or
   // the actual number of bytes transfered.
   //
-  result = libusb_control_transfer( USBDeviceHandle,
+  error = libusb_control_transfer( USBDeviceHandle,
                                    bmRequest,
                                    bRequest,
                                    wValue,
@@ -347,10 +347,10 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
 
   // check result for error or actual length transfered
   //
-  if ( result < 0) {
-    [ self printLibUSBError: result withOperation: @"libusb_control_transfer" ];
+  if ( error < 0) {
+    [ self printLibUSBError: error withOperation: @"libusb_control_transfer" ];
   } else {
-    [self printData: data length: result];
+    [self printData: data length: error];
   }
   libusb_close( USBDeviceHandle );
 }
@@ -364,8 +364,8 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   //
   unsigned char endpoint  = [ bulkTransferDirection unsignedCharValue ] | [ bulkTransferEndpoint unsignedCharValue ];
   UInt16        wLength   = [ bulkTransferLength intValue ];
-  int           dataTransfer;
-  int           result;
+  int           actualLength;
+  int           error;
 
   // I'm having problems with buffer overflow, so I bumped the size of data[]
   // quite considerable, but the problem won't go away
@@ -417,38 +417,38 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
 
   // Check for error.
   //
-  result = libusb_claim_interface( USBDeviceHandle, 0 );
-  if ( result != 0) {
-    [ self printLibUSBError: result withOperation: @"libusb_claim_interface" ];
+  error = libusb_claim_interface( USBDeviceHandle, 0 );
+  if ( error != 0) {
+    [ self printLibUSBError: error withOperation: @"libusb_claim_interface" ];
   }
 
   // Do the bulk transfer.
   //
-  result = libusb_bulk_transfer	(USBDeviceHandle,
+  error = libusb_bulk_transfer	(USBDeviceHandle,
                                  endpoint,
                                  data,
                                  wLength,
-                                 &dataTransfer,
+                                 &actualLength,
                                  1000 );
 
   // Check for error, or display feedback on success before printing the acual data.
   //
-  if ( result < 0) {
-    [ self printLibUSBError: result withOperation: @"libusb_bulk_transfer" ];
+  if ( error < 0) {
+    [ self printLibUSBError: error withOperation: @"libusb_bulk_transfer" ];
   } else {
-    [ self printString: [ NSString stringWithFormat: @"...actual transfer length: %d\n", dataTransfer ] withTextColor: [ self consoleInformationTextColor ]];
-    [self printData: data length: dataTransfer];
+    [ self printString: [ NSString stringWithFormat: @"...actual transfer length: %d\n", actualLength ] withTextColor: [ self consoleInformationTextColor ]];
+    [self printData: data length: actualLength];
   }
 
   // Release the interface.
   //
   // TODO: read more on interfaces
   //
-  result = libusb_release_interface(USBDeviceHandle, 0);
+  error = libusb_release_interface(USBDeviceHandle, 0);
   // CHeck for error.
   //
-  if ( result < 0) {
-    [ self printLibUSBError: result withOperation: @"libusb_release_interface" ];
+  if ( error < 0) {
+    [ self printLibUSBError: error withOperation: @"libusb_release_interface" ];
   }
 
   // Close the handle.
@@ -763,6 +763,16 @@ UInt16 convertNSStringToUInt16( NSString *theString )
 
 
 
+#pragma mark Delegates
+
+- (BOOL) applicationShouldHandleReopen: (NSApplication *) theApplication
+                     hasVisibleWindows: (BOOL) flag
+{
+  if( flag == NO){
+		[mainWindow makeKeyAndOrderFront:self];
+	}
+	return YES;
+}
 
 
 
