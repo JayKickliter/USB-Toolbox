@@ -16,6 +16,7 @@
 		C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D9E1C162342E000D83997 /* CTAppDelegate.m */; };
 		C04D9E20162342E100D83997 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04D9E1E162342E100D83997 /* MainMenu.xib */; };
 		C0807DCF16298FD700A563B7 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C0807DCE16298FD700A563B7 /* Icon.icns */; };
+		C08D845A1631BD650015C030 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C08D84591631BD650015C030 /* README.md */; };
 		C09D6ECD16302E6D0050EFB1 /* CTNumberToHexStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C09D6ECA16302E6D0050EFB1 /* CTNumberToHexStringTransformer.m */; };
 		C09D6ECE16302E6D0050EFB1 /* CTNumberToStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C09D6ECC16302E6D0050EFB1 /* CTNumberToStringFormatter.m */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		C04D9E1C162342E000D83997 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		C04D9E1F162342E100D83997 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C0807DCE16298FD700A563B7 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Images/Icon.icns; sourceTree = "<group>"; };
+		C08D84591631BD650015C030 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		C09D6EC916302E6D0050EFB1 /* CTNumberToHexStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNumberToHexStringTransformer.h; sourceTree = "<group>"; };
 		C09D6ECA16302E6D0050EFB1 /* CTNumberToHexStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNumberToHexStringTransformer.m; sourceTree = "<group>"; };
 		C09D6ECB16302E6D0050EFB1 /* CTNumberToStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNumberToStringFormatter.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		C04D9E10162342E000D83997 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C08D84591631BD650015C030 /* README.md */,
 				C04D9E11162342E000D83997 /* USB Toolbox-Info.plist */,
 				C04D9E12162342E000D83997 /* InfoPlist.strings */,
 				C04D9E15162342E000D83997 /* main.m */,
@@ -209,6 +212,7 @@
 				C04D9E1A162342E000D83997 /* Credits.rtf in Resources */,
 				C04D9E20162342E100D83997 /* MainMenu.xib in Resources */,
 				C0807DCF16298FD700A563B7 /* Icon.icns in Resources */,
+				C08D845A1631BD650015C030 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
