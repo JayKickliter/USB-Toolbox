@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		C01833601623741E007E6E28 /* libusb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libusb.h; path = "/opt/local/include/libusb-1.0/libusb.h"; sourceTree = "<absolute>"; };
-		C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "/Users/jaykickliter/Projects/USB Toolbox/Build/Products/Debug/../../../../../../../opt/local/lib/libusb-1.0.0.dylib"; sourceTree = "<absolute>"; };
+		C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "../../../../opt/local/lib/libusb-1.0.0.dylib"; sourceTree = SOURCE_ROOT; };
 		C04D9E05162342E000D83997 /* USB Toolbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB Toolbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04D9E09162342E000D83997 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C04D9E0C162342E000D83997 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
