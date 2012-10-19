@@ -29,22 +29,23 @@
   NSMutableAttributedString         *inputTextStorage;          // a pointer to inputTextView's textStorage
 }
 
-@property (readwrite) NSInteger displayHexOrPlainText;
-@property (readwrite) NSInteger requestType;
-@property (readwrite) NSInteger requestDestination;
-@property (readwrite) NSInteger bulkTransferEndpoint;
-@property (readwrite) NSInteger bulkTransferDirection;
-@property (readwrite) NSInteger bulkTransferLength;
-@property (copy)      NSColor   *consoleErrorTextColor;
-@property (copy)      NSColor   *consoleInformationTextColor;
-@property (copy)      NSColor   *consoleDataTextColor;
-@property (copy)      NSColor   *consoleBackgroundColor;
-@property (copy)      NSString  *deviceVIDString;
-@property (copy)      NSString  *devicePIDString;
-@property (copy)      NSString  *controlTransferRequestString;
-@property (copy)      NSString  *controlTransferValueString;
-@property (copy)      NSString  *controlTransferIndexString;
-@property (copy)      NSString  *controlTransferLengthString;
+@property (copy) NSColor  *consoleErrorTextColor;
+@property (copy) NSColor  *consoleInformationTextColor;
+@property (copy) NSColor  *consoleDataTextColor;
+@property (copy) NSColor  *consoleBackgroundColor;
+
+@property (copy) NSNumber *displayHexOrPlainText;
+@property (copy) NSNumber *bulkTransferEndpoint;
+@property (copy) NSNumber *bulkTransferDirection;
+@property (copy) NSNumber *bulkTransferLength;
+@property (copy) NSNumber *deviceVID;
+@property (copy) NSNumber *devicePID;
+@property (copy) NSNumber *requestType;
+@property (copy) NSNumber *requestDestination;
+@property (copy) NSNumber *controlTransferRequest;
+@property (copy) NSNumber *controlTransferValue;
+@property (copy) NSNumber *controlTransferIndex;
+@property (copy) NSNumber *controlTransferLength;
 
 
 
