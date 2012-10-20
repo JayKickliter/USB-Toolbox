@@ -8,7 +8,7 @@ Simple Cocoa application to send Vendor Requests and Bulk Transfers (for now). I
 
 ## Documentation
 
-I just started learning Doxygen, so it's pretty [sparse](./Documentation/html/index.html) right now.  
+I just started learning Doxygen, so it's pretty sparse right now.  
 
 ## Prerequisites
 
