@@ -1,0 +1,295 @@
+\hypertarget{interface_c_t_app_delegate}{\section{C\-T\-App\-Delegate Class Reference}
+\label{interface_c_t_app_delegate}\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}}
+}
+
+
+{\ttfamily \#import $<$C\-T\-App\-Delegate.\-h$>$}
+
+Inheritance diagram for C\-T\-App\-Delegate\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_c_t_app_delegate}
+\end{center}
+\end{figure}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interface_c_t_app_delegate_addd3afab284b71398cf768928236ec86}{print\-String\-:}
+\item 
+(void) -\/ \hyperlink{interface_c_t_app_delegate_ac775ffc73129f7d3ff35305d9341a831}{print\-Data\-:length\-:}
+\item 
+(void) -\/ \hyperlink{interface_c_t_app_delegate_aa1ff2bd3f654a541d2790cf4ebc36386}{print\-Hex\-From\-Data\-:length\-:}
+\item 
+(void) -\/ \hyperlink{interface_c_t_app_delegate_adc5dedd1eee0e8b1fc126764f1f242dd}{print\-Plain\-Text\-From\-Data\-:length\-:}
+\item 
+(void) -\/ \hyperlink{interface_c_t_app_delegate_ae7974427860f64ab0225f32237b11179}{print\-Lib\-U\-S\-B\-Error\-:with\-Operation\-:}
+\item 
+(N\-S\-Data $\ast$) -\/ \hyperlink{interface_c_t_app_delegate_ae71bc249cd087494e9b00e49988b5b55}{data\-From\-Hex\-String\-:}
+\begin{DoxyCompactList}\small\item\em Convers a hex formatted N\-S\-String to N\-S\-Data. \end{DoxyCompactList}\item 
+(I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a0061d4cbac40771a21e02323bedbf32b}{do\-Bulk\-Transfer\-:}
+\item 
+(I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a477526454468a7a90dd85aaffad30a57}{do\-U\-S\-B\-Control\-Transfer\-:}
+\item 
+(I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a21bf37f0abad2c4ba4728db09b3eb6e5}{list\-All\-Attached\-U\-S\-B\-Devices\-:}
+\item 
+(I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_ae6fb4f8759991c57bfdd0eb1c89821e3}{clear\-Console\-:}
+\item 
+(U\-Int8) -\/ \hyperlink{interface_c_t_app_delegate_a8e6db21c4bf9f1813527f4951572b3c8}{convert\-N\-S\-String\-To\-U\-Int8}
+\item 
+(U\-Int16) -\/ \hyperlink{interface_c_t_app_delegate_ae19f27002aa800030e0fa74b2d6b5237}{convert\-N\-S\-String\-To\-U\-Int16}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+I\-B\-Outlet N\-S\-Window $\ast$ \hyperlink{interface_c_t_app_delegate_a0e5d80a8d3d78945c2b14d477a71c0eb}{main\-Window}
+\item 
+I\-B\-Outlet N\-S\-Text\-View $\ast$ \hyperlink{interface_c_t_app_delegate_a02680c24bf116eb7869cfe0489b2a381}{console\-Text\-View}
+\item 
+I\-B\-Outlet N\-S\-Text\-View $\ast$ \hyperlink{interface_c_t_app_delegate_abf8e0f79b36a4b23262ba2a2d29eabe7}{input\-Text\-View}
+\item 
+I\-B\-Outlet N\-S\-User\-Defaults\-Controller $\ast$ \hyperlink{interface_c_t_app_delegate_a55373d5265a108cb12510bd086aa15e8}{user\-Defaults\-Controller}
+\item 
+libusb\-\_\-device $\ast$$\ast$ \hyperlink{interface_c_t_app_delegate_a9d80eb0a8fb6f9c373648cba3dbe5b26}{all\-U\-S\-B\-Devices}
+\item 
+libusb\-\_\-device\-\_\-handle $\ast$ \hyperlink{interface_c_t_app_delegate_a0efa5af44bc03361f0953b7946461635}{U\-S\-B\-Device\-Handle}
+\item 
+libusb\-\_\-device $\ast$ \hyperlink{interface_c_t_app_delegate_ac20589aa72af723c196a1251c22fc093}{the\-U\-S\-B\-Device}
+\item 
+ssize\-\_\-t \hyperlink{interface_c_t_app_delegate_aab4901a3d0ce6c86771365bbf1645eeb}{number\-Of\-U\-S\-B\-Devices}
+\item 
+N\-S\-Mutable\-Attributed\-String $\ast$ \hyperlink{interface_c_t_app_delegate_a46c927de3b01529297fa0e078e486f19}{output\-Text\-Storage}
+\item 
+N\-S\-Mutable\-Attributed\-String $\ast$ \hyperlink{interface_c_t_app_delegate_a267286c82789444b42d30238c62b38bc}{input\-Text\-Storage}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+N\-S\-Color $\ast$ \hyperlink{interface_c_t_app_delegate_ab0bb80237b8aa297ec48dec224eddbb7}{console\-Error\-Text\-Color}
+\item 
+N\-S\-Color $\ast$ \hyperlink{interface_c_t_app_delegate_a5b184ad30f043f8eb642ef9f21f11555}{console\-Information\-Text\-Color}
+\item 
+N\-S\-Color $\ast$ \hyperlink{interface_c_t_app_delegate_a51aebba711d81a108659db7f5a2e3509}{console\-Data\-Text\-Color}
+\item 
+N\-S\-Color $\ast$ \hyperlink{interface_c_t_app_delegate_a9fc48b94e012554988d71fab9fc854b8}{console\-Background\-Color}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_a4578b9f0c04d7376bde881085bad233a}{display\-Hex\-Or\-Plain\-Text}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_ae808b0548069c03cc1912db1c83891eb}{bulk\-Transfer\-Endpoint}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_adea2205a53bdecd999d70b5abd08696f}{bulk\-Transfer\-Direction}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_ac4efbc9d53180254895b9733fe3d376e}{bulk\-Transfer\-Length}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_ac3f78415dd122de7cebf7a3745a69da9}{device\-V\-I\-D}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_a5803369bf1901ee34be36dbdd3eb3734}{device\-P\-I\-D}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_ae0366c6888903dc8247ecf1f2dacc69d}{request\-Type}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_a91630675dd1cdd1844fdd217ce52bf86}{request\-Destination}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_aade0217b509c082080b919e7a9f55046}{control\-Transfer\-Request}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_a62fe8f350142e22ead502a51f201cb1f}{control\-Transfer\-Value}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_af08e59f3a506606bfa91e079b9ae16a6}{control\-Transfer\-Index}
+\item 
+N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_afb1667e9e2db3e2b289a099508a338d5}{control\-Transfer\-Length}
+\end{DoxyCompactItemize}
+
+
+\subsection{Method Documentation}
+\hypertarget{interface_c_t_app_delegate_ae6fb4f8759991c57bfdd0eb1c89821e3}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!clear\-Console\-:@{clear\-Console\-:}}
+\index{clear\-Console\-:@{clear\-Console\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{clear\-Console\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) clear\-Console\-: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{sender}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_ae6fb4f8759991c57bfdd0eb1c89821e3}
+\hypertarget{interface_c_t_app_delegate_ae19f27002aa800030e0fa74b2d6b5237}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!convert\-N\-S\-String\-To\-U\-Int16@{convert\-N\-S\-String\-To\-U\-Int16}}
+\index{convert\-N\-S\-String\-To\-U\-Int16@{convert\-N\-S\-String\-To\-U\-Int16}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{convert\-N\-S\-String\-To\-U\-Int16}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (U\-Int16) convert\-N\-S\-String\-To\-U\-Int16 
+\begin{DoxyParamCaption}
+\item[{(N\-S\-String $\ast$)}]{the\-String}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_ae19f27002aa800030e0fa74b2d6b5237}
+\hypertarget{interface_c_t_app_delegate_a8e6db21c4bf9f1813527f4951572b3c8}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!convert\-N\-S\-String\-To\-U\-Int8@{convert\-N\-S\-String\-To\-U\-Int8}}
+\index{convert\-N\-S\-String\-To\-U\-Int8@{convert\-N\-S\-String\-To\-U\-Int8}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{convert\-N\-S\-String\-To\-U\-Int8}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (U\-Int8) convert\-N\-S\-String\-To\-U\-Int8 
+\begin{DoxyParamCaption}
+\item[{(N\-S\-String $\ast$)}]{the\-String}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_a8e6db21c4bf9f1813527f4951572b3c8}
+\hypertarget{interface_c_t_app_delegate_ae71bc249cd087494e9b00e49988b5b55}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!data\-From\-Hex\-String\-:@{data\-From\-Hex\-String\-:}}
+\index{data\-From\-Hex\-String\-:@{data\-From\-Hex\-String\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{data\-From\-Hex\-String\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Data $\ast$) data\-From\-Hex\-String\-: 
+\begin{DoxyParamCaption}
+\item[{(N\-S\-String $\ast$)}]{the\-String}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_ae71bc249cd087494e9b00e49988b5b55}
+
+
+Convers a hex formatted N\-S\-String to N\-S\-Data. 
+
+The string should have byte sized hex symbols speperated by spaces, with or without leading a `0x'. Leading zeros are optional.
+
+A valid example\-: `0xd\-E ad Fe ed 0x\-A 0xb c 0d'.
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\-String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\-S\-Data 
+\end{DoxyReturn}
+\hypertarget{interface_c_t_app_delegate_a0061d4cbac40771a21e02323bedbf32b}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!do\-Bulk\-Transfer\-:@{do\-Bulk\-Transfer\-:}}
+\index{do\-Bulk\-Transfer\-:@{do\-Bulk\-Transfer\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{do\-Bulk\-Transfer\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) do\-Bulk\-Transfer\-: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{sender}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_a0061d4cbac40771a21e02323bedbf32b}
+\hypertarget{interface_c_t_app_delegate_a477526454468a7a90dd85aaffad30a57}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!do\-U\-S\-B\-Control\-Transfer\-:@{do\-U\-S\-B\-Control\-Transfer\-:}}
+\index{do\-U\-S\-B\-Control\-Transfer\-:@{do\-U\-S\-B\-Control\-Transfer\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{do\-U\-S\-B\-Control\-Transfer\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) do\-U\-S\-B\-Control\-Transfer\-: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{sender}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_a477526454468a7a90dd85aaffad30a57}
+\hypertarget{interface_c_t_app_delegate_a21bf37f0abad2c4ba4728db09b3eb6e5}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!list\-All\-Attached\-U\-S\-B\-Devices\-:@{list\-All\-Attached\-U\-S\-B\-Devices\-:}}
+\index{list\-All\-Attached\-U\-S\-B\-Devices\-:@{list\-All\-Attached\-U\-S\-B\-Devices\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{list\-All\-Attached\-U\-S\-B\-Devices\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) list\-All\-Attached\-U\-S\-B\-Devices\-: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{sender}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_a21bf37f0abad2c4ba4728db09b3eb6e5}
+\hypertarget{interface_c_t_app_delegate_ac775ffc73129f7d3ff35305d9341a831}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!print\-Data\-:length\-:@{print\-Data\-:length\-:}}
+\index{print\-Data\-:length\-:@{print\-Data\-:length\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{print\-Data\-:length\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) print\-Data\-: 
+\begin{DoxyParamCaption}
+\item[{(unsigned char $\ast$)}]{the\-Data}
+\item[{length:(int)}]{the\-Length}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_ac775ffc73129f7d3ff35305d9341a831}
+\hypertarget{interface_c_t_app_delegate_aa1ff2bd3f654a541d2790cf4ebc36386}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!print\-Hex\-From\-Data\-:length\-:@{print\-Hex\-From\-Data\-:length\-:}}
+\index{print\-Hex\-From\-Data\-:length\-:@{print\-Hex\-From\-Data\-:length\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{print\-Hex\-From\-Data\-:length\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) print\-Hex\-From\-Data\-: 
+\begin{DoxyParamCaption}
+\item[{(unsigned char $\ast$)}]{the\-Data}
+\item[{length:(int)}]{the\-Length}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_aa1ff2bd3f654a541d2790cf4ebc36386}
+\hypertarget{interface_c_t_app_delegate_ae7974427860f64ab0225f32237b11179}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!print\-Lib\-U\-S\-B\-Error\-:with\-Operation\-:@{print\-Lib\-U\-S\-B\-Error\-:with\-Operation\-:}}
+\index{print\-Lib\-U\-S\-B\-Error\-:with\-Operation\-:@{print\-Lib\-U\-S\-B\-Error\-:with\-Operation\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{print\-Lib\-U\-S\-B\-Error\-:with\-Operation\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) print\-Lib\-U\-S\-B\-Error\-: 
+\begin{DoxyParamCaption}
+\item[{(int)}]{the\-Error}
+\item[{withOperation:(N\-S\-String $\ast$)}]{the\-Operation}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_ae7974427860f64ab0225f32237b11179}
+\hypertarget{interface_c_t_app_delegate_adc5dedd1eee0e8b1fc126764f1f242dd}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!print\-Plain\-Text\-From\-Data\-:length\-:@{print\-Plain\-Text\-From\-Data\-:length\-:}}
+\index{print\-Plain\-Text\-From\-Data\-:length\-:@{print\-Plain\-Text\-From\-Data\-:length\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{print\-Plain\-Text\-From\-Data\-:length\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) print\-Plain\-Text\-From\-Data\-: 
+\begin{DoxyParamCaption}
+\item[{(unsigned char $\ast$)}]{the\-Data}
+\item[{length:(int)}]{the\-Length}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_adc5dedd1eee0e8b1fc126764f1f242dd}
+\hypertarget{interface_c_t_app_delegate_addd3afab284b71398cf768928236ec86}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!print\-String\-:@{print\-String\-:}}
+\index{print\-String\-:@{print\-String\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{print\-String\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) print\-String\-: 
+\begin{DoxyParamCaption}
+\item[{(N\-S\-String $\ast$)}]{the\-String}
+\end{DoxyParamCaption}
+}}\label{interface_c_t_app_delegate_addd3afab284b71398cf768928236ec86}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{interface_c_t_app_delegate_a9d80eb0a8fb6f9c373648cba3dbe5b26}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!all\-U\-S\-B\-Devices@{all\-U\-S\-B\-Devices}}
+\index{all\-U\-S\-B\-Devices@{all\-U\-S\-B\-Devices}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{all\-U\-S\-B\-Devices}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (libusb\-\_\-device$\ast$$\ast$) all\-U\-S\-B\-Devices\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a9d80eb0a8fb6f9c373648cba3dbe5b26}
+\hypertarget{interface_c_t_app_delegate_a02680c24bf116eb7869cfe0489b2a381}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!console\-Text\-View@{console\-Text\-View}}
+\index{console\-Text\-View@{console\-Text\-View}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{console\-Text\-View}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-Text\-View$\ast$) console\-Text\-View\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a02680c24bf116eb7869cfe0489b2a381}
+\hypertarget{interface_c_t_app_delegate_a267286c82789444b42d30238c62b38bc}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!input\-Text\-Storage@{input\-Text\-Storage}}
+\index{input\-Text\-Storage@{input\-Text\-Storage}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{input\-Text\-Storage}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Mutable\-Attributed\-String$\ast$) input\-Text\-Storage\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a267286c82789444b42d30238c62b38bc}
+\hypertarget{interface_c_t_app_delegate_abf8e0f79b36a4b23262ba2a2d29eabe7}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!input\-Text\-View@{input\-Text\-View}}
+\index{input\-Text\-View@{input\-Text\-View}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{input\-Text\-View}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-Text\-View$\ast$) input\-Text\-View\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_abf8e0f79b36a4b23262ba2a2d29eabe7}
+\hypertarget{interface_c_t_app_delegate_a0e5d80a8d3d78945c2b14d477a71c0eb}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!main\-Window@{main\-Window}}
+\index{main\-Window@{main\-Window}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-Window$\ast$) main\-Window\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a0e5d80a8d3d78945c2b14d477a71c0eb}
+\hypertarget{interface_c_t_app_delegate_aab4901a3d0ce6c86771365bbf1645eeb}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!number\-Of\-U\-S\-B\-Devices@{number\-Of\-U\-S\-B\-Devices}}
+\index{number\-Of\-U\-S\-B\-Devices@{number\-Of\-U\-S\-B\-Devices}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{number\-Of\-U\-S\-B\-Devices}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (ssize\-\_\-t) number\-Of\-U\-S\-B\-Devices\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_aab4901a3d0ce6c86771365bbf1645eeb}
+\hypertarget{interface_c_t_app_delegate_a46c927de3b01529297fa0e078e486f19}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!output\-Text\-Storage@{output\-Text\-Storage}}
+\index{output\-Text\-Storage@{output\-Text\-Storage}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{output\-Text\-Storage}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Mutable\-Attributed\-String$\ast$) output\-Text\-Storage\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a46c927de3b01529297fa0e078e486f19}
+\hypertarget{interface_c_t_app_delegate_ac20589aa72af723c196a1251c22fc093}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!the\-U\-S\-B\-Device@{the\-U\-S\-B\-Device}}
+\index{the\-U\-S\-B\-Device@{the\-U\-S\-B\-Device}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{the\-U\-S\-B\-Device}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (libusb\-\_\-device$\ast$) the\-U\-S\-B\-Device\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_ac20589aa72af723c196a1251c22fc093}
+\hypertarget{interface_c_t_app_delegate_a0efa5af44bc03361f0953b7946461635}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!U\-S\-B\-Device\-Handle@{U\-S\-B\-Device\-Handle}}
+\index{U\-S\-B\-Device\-Handle@{U\-S\-B\-Device\-Handle}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{U\-S\-B\-Device\-Handle}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (libusb\-\_\-device\-\_\-handle$\ast$) U\-S\-B\-Device\-Handle\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a0efa5af44bc03361f0953b7946461635}
+\hypertarget{interface_c_t_app_delegate_a55373d5265a108cb12510bd086aa15e8}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!user\-Defaults\-Controller@{user\-Defaults\-Controller}}
+\index{user\-Defaults\-Controller@{user\-Defaults\-Controller}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{user\-Defaults\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-User\-Defaults\-Controller$\ast$) user\-Defaults\-Controller\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a55373d5265a108cb12510bd086aa15e8}
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_c_t_app_delegate_adea2205a53bdecd999d70b5abd08696f}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!bulk\-Transfer\-Direction@{bulk\-Transfer\-Direction}}
+\index{bulk\-Transfer\-Direction@{bulk\-Transfer\-Direction}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{bulk\-Transfer\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) bulk\-Transfer\-Direction\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_adea2205a53bdecd999d70b5abd08696f}
+\hypertarget{interface_c_t_app_delegate_ae808b0548069c03cc1912db1c83891eb}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!bulk\-Transfer\-Endpoint@{bulk\-Transfer\-Endpoint}}
+\index{bulk\-Transfer\-Endpoint@{bulk\-Transfer\-Endpoint}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{bulk\-Transfer\-Endpoint}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) bulk\-Transfer\-Endpoint\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_ae808b0548069c03cc1912db1c83891eb}
+\hypertarget{interface_c_t_app_delegate_ac4efbc9d53180254895b9733fe3d376e}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!bulk\-Transfer\-Length@{bulk\-Transfer\-Length}}
+\index{bulk\-Transfer\-Length@{bulk\-Transfer\-Length}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{bulk\-Transfer\-Length}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) bulk\-Transfer\-Length\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_ac4efbc9d53180254895b9733fe3d376e}
+\hypertarget{interface_c_t_app_delegate_a9fc48b94e012554988d71fab9fc854b8}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!console\-Background\-Color@{console\-Background\-Color}}
+\index{console\-Background\-Color@{console\-Background\-Color}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{console\-Background\-Color}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Color$\ast$) console\-Background\-Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a9fc48b94e012554988d71fab9fc854b8}
+\hypertarget{interface_c_t_app_delegate_a51aebba711d81a108659db7f5a2e3509}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!console\-Data\-Text\-Color@{console\-Data\-Text\-Color}}
+\index{console\-Data\-Text\-Color@{console\-Data\-Text\-Color}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{console\-Data\-Text\-Color}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Color$\ast$) console\-Data\-Text\-Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a51aebba711d81a108659db7f5a2e3509}
+\hypertarget{interface_c_t_app_delegate_ab0bb80237b8aa297ec48dec224eddbb7}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!console\-Error\-Text\-Color@{console\-Error\-Text\-Color}}
+\index{console\-Error\-Text\-Color@{console\-Error\-Text\-Color}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{console\-Error\-Text\-Color}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Color$\ast$) console\-Error\-Text\-Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_ab0bb80237b8aa297ec48dec224eddbb7}
+\hypertarget{interface_c_t_app_delegate_a5b184ad30f043f8eb642ef9f21f11555}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!console\-Information\-Text\-Color@{console\-Information\-Text\-Color}}
+\index{console\-Information\-Text\-Color@{console\-Information\-Text\-Color}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{console\-Information\-Text\-Color}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Color$\ast$) console\-Information\-Text\-Color\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a5b184ad30f043f8eb642ef9f21f11555}
+\hypertarget{interface_c_t_app_delegate_af08e59f3a506606bfa91e079b9ae16a6}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!control\-Transfer\-Index@{control\-Transfer\-Index}}
+\index{control\-Transfer\-Index@{control\-Transfer\-Index}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{control\-Transfer\-Index}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) control\-Transfer\-Index\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_af08e59f3a506606bfa91e079b9ae16a6}
+\hypertarget{interface_c_t_app_delegate_afb1667e9e2db3e2b289a099508a338d5}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!control\-Transfer\-Length@{control\-Transfer\-Length}}
+\index{control\-Transfer\-Length@{control\-Transfer\-Length}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{control\-Transfer\-Length}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) control\-Transfer\-Length\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_afb1667e9e2db3e2b289a099508a338d5}
+\hypertarget{interface_c_t_app_delegate_aade0217b509c082080b919e7a9f55046}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!control\-Transfer\-Request@{control\-Transfer\-Request}}
+\index{control\-Transfer\-Request@{control\-Transfer\-Request}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{control\-Transfer\-Request}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) control\-Transfer\-Request\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_aade0217b509c082080b919e7a9f55046}
+\hypertarget{interface_c_t_app_delegate_a62fe8f350142e22ead502a51f201cb1f}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!control\-Transfer\-Value@{control\-Transfer\-Value}}
+\index{control\-Transfer\-Value@{control\-Transfer\-Value}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{control\-Transfer\-Value}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) control\-Transfer\-Value\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a62fe8f350142e22ead502a51f201cb1f}
+\hypertarget{interface_c_t_app_delegate_a5803369bf1901ee34be36dbdd3eb3734}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!device\-P\-I\-D@{device\-P\-I\-D}}
+\index{device\-P\-I\-D@{device\-P\-I\-D}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{device\-P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) device\-P\-I\-D\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a5803369bf1901ee34be36dbdd3eb3734}
+\hypertarget{interface_c_t_app_delegate_ac3f78415dd122de7cebf7a3745a69da9}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!device\-V\-I\-D@{device\-V\-I\-D}}
+\index{device\-V\-I\-D@{device\-V\-I\-D}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{device\-V\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) device\-V\-I\-D\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_ac3f78415dd122de7cebf7a3745a69da9}
+\hypertarget{interface_c_t_app_delegate_a4578b9f0c04d7376bde881085bad233a}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!display\-Hex\-Or\-Plain\-Text@{display\-Hex\-Or\-Plain\-Text}}
+\index{display\-Hex\-Or\-Plain\-Text@{display\-Hex\-Or\-Plain\-Text}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{display\-Hex\-Or\-Plain\-Text}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) display\-Hex\-Or\-Plain\-Text\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a4578b9f0c04d7376bde881085bad233a}
+\hypertarget{interface_c_t_app_delegate_a91630675dd1cdd1844fdd217ce52bf86}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!request\-Destination@{request\-Destination}}
+\index{request\-Destination@{request\-Destination}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{request\-Destination}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) request\-Destination\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a91630675dd1cdd1844fdd217ce52bf86}
+\hypertarget{interface_c_t_app_delegate_ae0366c6888903dc8247ecf1f2dacc69d}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!request\-Type@{request\-Type}}
+\index{request\-Type@{request\-Type}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{request\-Type}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) request\-Type\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_ae0366c6888903dc8247ecf1f2dacc69d}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_c_t_app_delegate_8h}{C\-T\-App\-Delegate.\-h}\item 
+\hyperlink{_c_t_app_delegate_8m}{C\-T\-App\-Delegate.\-m}\end{DoxyCompactItemize}

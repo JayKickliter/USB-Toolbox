@@ -57,9 +57,13 @@
 
 /**
  Convers a hex formatted NSString to NSData.
+ 
+ The string should have byte sized hex symbols speperated by spaces, with or without leading a `0x'. Leading zeros are optional.
+ 
+ A valid example: `0xdE ad Fe ed 0xA 0xb c 0d'.
+
  @param theString
  @returns NSData
- @exception none
 */
 - (NSData *) dataFromHexString: (NSString *) theString;
 
