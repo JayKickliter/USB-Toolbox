@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C0141E2216321A9600E157C9 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C0141E2516321A9600E157C9 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				C0141E2716321A9F00E157C9 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		C03266A1162E2830007A4F4E /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		C03266A2162E283F007A4F4E /* libusb-1.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; };
@@ -199,6 +213,7 @@
 			projectRoot = "";
 			targets = (
 				C04D9E04162342E000D83997 /* USB Toolbox */,
+				C0141E2216321A9600E157C9 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +234,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C0141E2716321A9F00E157C9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#\n# Build the doxygen documentation for the project and load the docset into Xcode\n#\n# Created by Fred McCann on 03/16/2010.\n# Last updated 10/26/2010.\n# http://www.duckrowing.com\n#\n# Based on the build script provided by Apple:\n# http://developer.apple.com/tools/creatingdocsetswithdoxygen.html\n#\n# Set the variable $COMPANY_RDOMAIN_PREFIX equal to the reverse domain name of your comany\n# Example: com.duckrowing\n#\n\nDOXYGEN_PATH=\"/Applications/Doxygen.app/Contents/Resources/doxygen\"\nDOCSET_PATH=\"$SOURCE_ROOT/build/$PRODUCT_NAME.docset\"\n\nif ! [ -f \\\"$SOURCE_ROOT/Doxyfile\\\" ]\nthen\necho doxygen config file does not exist\n$DOXYGEN_PATH -g \"$SOURCE_ROOT/Doxyfile\"\nfi\n\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp \"$SOURCE_ROOT/Doxyfile\" \"$TEMP_DIR/Doxyfile\"\n\necho \"INPUT = \\\"$SOURCE_ROOT\\\"\" >> \"$TEMP_DIR/Doxyfile\"\necho \"OUTPUT_DIRECTORY = \\\"$DOCSET_PATH\\\"\" >> \"$TEMP_DIR/Doxyfile\"\necho \"RECURSIVE = YES\" >> \"$TEMP_DIR/Doxyfile\"\necho \"EXTRACT_ALL        = YES\" >> \"$TEMP_DIR/Doxyfile\"\necho \"JAVADOC_AUTOBRIEF        = YES\" >> \"$TEMP_DIR/Doxyfile\"\necho \"GENERATE_LATEX        = NO\" >> \"$TEMP_DIR/Doxyfile\"\necho \"GENERATE_DOCSET        = YES\" >> \"$TEMP_DIR/Doxyfile\"\necho \"DOCSET_FEEDNAME = $PRODUCT_NAME Documentation\" >> \"$TEMP_DIR/Doxyfile\"\necho \"DOCSET_BUNDLE_ID       = $COMPANY_RDOMAIN_PREFIX.$PRODUCT_NAME\" >> \"$TEMP_DIR/Doxyfile\"\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH \"$TEMP_DIR/Doxyfile\"\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C \"$DOCSET_PATH/html\" install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f \"$TEMP_DIR/loadDocSet.scpt\"\n\necho \"tell application \\\"Xcode\\\"\" >> \"$TEMP_DIR/loadDocSet.scpt\"\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/$COMPANY_RDOMAIN_PREFIX.$PRODUCT_NAME.docset\\\"\" >> \"$TEMP_DIR/loadDocSet.scpt\"\necho \"end tell\" >> \"$TEMP_DIR/loadDocSet.scpt\"\n\n#  Run the load-docset applescript command.\nosascript \"$TEMP_DIR/loadDocSet.scpt\"\n\nexit 0\n";
+		};
 		C03266A3162E3885007A4F4E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +305,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C0141E2316321A9600E157C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C0141E2416321A9600E157C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C04D9E21162342E100D83997 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -373,6 +415,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C0141E2516321A9600E157C9 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0141E2316321A9600E157C9 /* Debug */,
+				C0141E2416321A9600E157C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C04D9DFF162342E000D83997 /* Build configuration list for PBXProject "USB Toolbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

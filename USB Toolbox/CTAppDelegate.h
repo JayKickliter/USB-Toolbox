@@ -55,6 +55,14 @@
 - (void) printPlainTextFromData:(unsigned char *) theData     length:       (int) theLength;
 - (void) printLibUSBError:      (int)             theError    withOperation:(NSString *) theOperation;
 
+/**
+ Convers a hex formatted NSString to NSData.
+ @param theString
+ @returns NSData
+ @exception none
+*/
+- (NSData *) dataFromHexString: (NSString *) theString;
+
 
 - (IBAction) doBulkTransfer:            (id) sender;
 - (IBAction) doUSBControlTransfer:      (id) sender;

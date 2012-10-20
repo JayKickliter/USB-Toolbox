@@ -1,0 +1,364 @@
+\begin{theindex}
+
+  \item {all\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {allows\discretionary {-}{}{}Reverse\discretionary {-}{}{}Transformation}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer}, 
+		\hyperpage{10}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Direction}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Endpoint}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+
+  \indexspace
+
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}X}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}h}, 
+		\hyperpage{13}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{7}
+    \subitem {all\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices}, 
+		\hyperpage{8}
+    \subitem {bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Direction}, 
+		\hyperpage{9}
+    \subitem {bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Endpoint}, 
+		\hyperpage{9}
+    \subitem {bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length}, 
+		\hyperpage{9}
+    \subitem {clear\discretionary {-}{}{}Console\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {console\discretionary {-}{}{}Background\discretionary {-}{}{}Color}, 
+		\hyperpage{9}
+    \subitem {console\discretionary {-}{}{}Data\discretionary {-}{}{}Text\discretionary {-}{}{}Color}, 
+		\hyperpage{9}
+    \subitem {console\discretionary {-}{}{}Error\discretionary {-}{}{}Text\discretionary {-}{}{}Color}, 
+		\hyperpage{9}
+    \subitem {console\discretionary {-}{}{}Information\discretionary {-}{}{}Text\discretionary {-}{}{}Color}, 
+		\hyperpage{9}
+    \subitem {console\discretionary {-}{}{}Text\discretionary {-}{}{}View}, 
+		\hyperpage{8}
+    \subitem {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Index}, 
+		\hyperpage{9}
+    \subitem {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length}, 
+		\hyperpage{9}
+    \subitem {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Request}, 
+		\hyperpage{9}
+    \subitem {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Value}, 
+		\hyperpage{9}
+    \subitem {convert\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}String\discretionary {-}{}{}To\discretionary {-}{}{}U\discretionary {-}{}{}Int16}, 
+		\hyperpage{8}
+    \subitem {convert\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}String\discretionary {-}{}{}To\discretionary {-}{}{}U\discretionary {-}{}{}Int8}, 
+		\hyperpage{8}
+    \subitem {device\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}D}, 
+		\hyperpage{9}
+    \subitem {device\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}D}, 
+		\hyperpage{9}
+    \subitem {display\discretionary {-}{}{}Hex\discretionary {-}{}{}Or\discretionary {-}{}{}Plain\discretionary {-}{}{}Text}, 
+		\hyperpage{9}
+    \subitem {do\discretionary {-}{}{}Bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {do\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Control\discretionary {-}{}{}Transfer\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {input\discretionary {-}{}{}Text\discretionary {-}{}{}Storage}, 
+		\hyperpage{8}
+    \subitem {input\discretionary {-}{}{}Text\discretionary {-}{}{}View}, 
+		\hyperpage{8}
+    \subitem {list\discretionary {-}{}{}All\discretionary {-}{}{}Attached\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {main\discretionary {-}{}{}Window}, \hyperpage{8}
+    \subitem {number\discretionary {-}{}{}Of\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices}, 
+		\hyperpage{8}
+    \subitem {output\discretionary {-}{}{}Text\discretionary {-}{}{}Storage}, 
+		\hyperpage{9}
+    \subitem {print\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {print\discretionary {-}{}{}Hex\discretionary {-}{}{}From\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {print\discretionary {-}{}{}Lib\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Error\discretionary {-}{}{}:with\discretionary {-}{}{}Operation\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {print\discretionary {-}{}{}Plain\discretionary {-}{}{}Text\discretionary {-}{}{}From\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {print\discretionary {-}{}{}String\discretionary {-}{}{}:}, 
+		\hyperpage{8}
+    \subitem {request\discretionary {-}{}{}Destination}, \hyperpage{9}
+    \subitem {request\discretionary {-}{}{}Type}, \hyperpage{9}
+    \subitem {the\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Device}, 
+		\hyperpage{9}
+    \subitem {U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Device\discretionary {-}{}{}Handle}, 
+		\hyperpage{9}
+    \subitem {user\discretionary {-}{}{}Defaults\discretionary {-}{}{}Controller}, 
+		\hyperpage{9}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}h}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}X}, 
+		\hyperpage{13}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Background\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Data\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Error\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Information\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Display\discretionary {-}{}{}Hex\discretionary {-}{}{}Or\discretionary {-}{}{}Plain\discretionary {-}{}{}Text\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}b\discretionary {-}{}{}Request\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bm\discretionary {-}{}{}Request\discretionary {-}{}{}Destination\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bm\discretionary {-}{}{}Request\discretionary {-}{}{}Type\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}endpoint\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Index\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Length\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Value\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Background\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Data\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Error\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Information\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Display\discretionary {-}{}{}Hex\discretionary {-}{}{}Or\discretionary {-}{}{}Plain\discretionary {-}{}{}Text\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}b\discretionary {-}{}{}Request\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bm\discretionary {-}{}{}Request\discretionary {-}{}{}Destination\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bm\discretionary {-}{}{}Request\discretionary {-}{}{}Type\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}endpoint\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Index\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Length\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Value\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{14}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer}, 
+		\hyperpage{9}
+    \subitem {allows\discretionary {-}{}{}Reverse\discretionary {-}{}{}Transformation}, 
+		\hyperpage{10}
+    \subitem {reverse\discretionary {-}{}{}Transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}, 
+		\hyperpage{10}
+    \subitem {transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}, 
+		\hyperpage{10}
+    \subitem {transformed\discretionary {-}{}{}Value\discretionary {-}{}{}Class}, 
+		\hyperpage{10}
+  \item {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter}, 
+		\hyperpage{10}
+    \subitem {allows\discretionary {-}{}{}Reverse\discretionary {-}{}{}Transformation}, 
+		\hyperpage{11}
+    \subitem {reverse\discretionary {-}{}{}Transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}, 
+		\hyperpage{11}
+    \subitem {transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}, 
+		\hyperpage{11}
+    \subitem {transformed\discretionary {-}{}{}Value\discretionary {-}{}{}Class}, 
+		\hyperpage{11}
+  \item {clear\discretionary {-}{}{}Console\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {console\discretionary {-}{}{}Background\discretionary {-}{}{}Color}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {console\discretionary {-}{}{}Data\discretionary {-}{}{}Text\discretionary {-}{}{}Color}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {console\discretionary {-}{}{}Error\discretionary {-}{}{}Text\discretionary {-}{}{}Color}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {console\discretionary {-}{}{}Information\discretionary {-}{}{}Text\discretionary {-}{}{}Color}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {console\discretionary {-}{}{}Text\discretionary {-}{}{}View}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Index}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Request}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Value}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {convert\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}String\discretionary {-}{}{}To\discretionary {-}{}{}U\discretionary {-}{}{}Int16}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {convert\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}String\discretionary {-}{}{}To\discretionary {-}{}{}U\discretionary {-}{}{}Int8}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {device\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}D}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {device\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}D}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {display\discretionary {-}{}{}Hex\discretionary {-}{}{}Or\discretionary {-}{}{}Plain\discretionary {-}{}{}Text}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {do\discretionary {-}{}{}Bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {do\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Control\discretionary {-}{}{}Transfer\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {input\discretionary {-}{}{}Text\discretionary {-}{}{}Storage}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {input\discretionary {-}{}{}Text\discretionary {-}{}{}View}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {list\discretionary {-}{}{}All\discretionary {-}{}{}Attached\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.\discretionary {-}{}{}m}, \hyperpage{15}
+  \item {main.\discretionary {-}{}{}m}
+    \subitem {main}, \hyperpage{15}
+  \item {main\discretionary {-}{}{}Window}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {number\discretionary {-}{}{}Of\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {output\discretionary {-}{}{}Text\discretionary {-}{}{}Storage}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+
+  \indexspace
+
+  \item {print\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {print\discretionary {-}{}{}Hex\discretionary {-}{}{}From\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {print\discretionary {-}{}{}Lib\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Error\discretionary {-}{}{}:with\discretionary {-}{}{}Operation\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {print\discretionary {-}{}{}Plain\discretionary {-}{}{}Text\discretionary {-}{}{}From\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+  \item {print\discretionary {-}{}{}String\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{8}
+
+  \indexspace
+
+  \item {request\discretionary {-}{}{}Destination}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {request\discretionary {-}{}{}Type}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {reverse\discretionary {-}{}{}Transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer}, 
+		\hyperpage{10}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {the\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Device}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer}, 
+		\hyperpage{10}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter}, 
+		\hyperpage{11}
+  \item {transformed\discretionary {-}{}{}Value\discretionary {-}{}{}Class}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer}, 
+		\hyperpage{10}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}h}, 
+		\hyperpage{13}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.\discretionary {-}{}{}m}, 
+		\hyperpage{13}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer.\discretionary {-}{}{}h}, 
+		\hyperpage{14}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer.\discretionary {-}{}{}m}, 
+		\hyperpage{15}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter.\discretionary {-}{}{}h}, 
+		\hyperpage{15}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter.\discretionary {-}{}{}m}, 
+		\hyperpage{15}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/main.\discretionary {-}{}{}m}, 
+		\hyperpage{15}
+  \item {U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Device\discretionary {-}{}{}Handle}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+  \item {user\discretionary {-}{}{}Defaults\discretionary {-}{}{}Controller}
+    \subitem {C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate}, 
+		\hyperpage{9}
+
+\end{theindex}

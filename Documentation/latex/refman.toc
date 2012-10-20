@@ -1,0 +1,90 @@
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate Class Reference}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Method Documentation}{8}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.1}clear\discretionary {-}{}{}Console\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.2}convert\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}String\discretionary {-}{}{}To\discretionary {-}{}{}U\discretionary {-}{}{}Int16}{8}{subsubsection.4.1.1.2}
+\contentsline {subsubsection}{\numberline {4.1.1.3}convert\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}String\discretionary {-}{}{}To\discretionary {-}{}{}U\discretionary {-}{}{}Int8}{8}{subsubsection.4.1.1.3}
+\contentsline {subsubsection}{\numberline {4.1.1.4}do\discretionary {-}{}{}Bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.4}
+\contentsline {subsubsection}{\numberline {4.1.1.5}do\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Control\discretionary {-}{}{}Transfer\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.5}
+\contentsline {subsubsection}{\numberline {4.1.1.6}list\discretionary {-}{}{}All\discretionary {-}{}{}Attached\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.6}
+\contentsline {subsubsection}{\numberline {4.1.1.7}print\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.7}
+\contentsline {subsubsection}{\numberline {4.1.1.8}print\discretionary {-}{}{}Hex\discretionary {-}{}{}From\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.8}
+\contentsline {subsubsection}{\numberline {4.1.1.9}print\discretionary {-}{}{}Lib\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Error\discretionary {-}{}{}:with\discretionary {-}{}{}Operation\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.9}
+\contentsline {subsubsection}{\numberline {4.1.1.10}print\discretionary {-}{}{}Plain\discretionary {-}{}{}Text\discretionary {-}{}{}From\discretionary {-}{}{}Data\discretionary {-}{}{}:length\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.10}
+\contentsline {subsubsection}{\numberline {4.1.1.11}print\discretionary {-}{}{}String\discretionary {-}{}{}:}{8}{subsubsection.4.1.1.11}
+\contentsline {subsection}{\numberline {4.1.2}Member Data Documentation}{8}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}all\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices}{8}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}console\discretionary {-}{}{}Text\discretionary {-}{}{}View}{8}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}input\discretionary {-}{}{}Text\discretionary {-}{}{}Storage}{8}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}input\discretionary {-}{}{}Text\discretionary {-}{}{}View}{8}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}main\discretionary {-}{}{}Window}{8}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}number\discretionary {-}{}{}Of\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Devices}{9}{subsubsection.4.1.2.6}
+\contentsline {subsubsection}{\numberline {4.1.2.7}output\discretionary {-}{}{}Text\discretionary {-}{}{}Storage}{9}{subsubsection.4.1.2.7}
+\contentsline {subsubsection}{\numberline {4.1.2.8}the\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Device}{9}{subsubsection.4.1.2.8}
+\contentsline {subsubsection}{\numberline {4.1.2.9}U\discretionary {-}{}{}S\discretionary {-}{}{}B\discretionary {-}{}{}Device\discretionary {-}{}{}Handle}{9}{subsubsection.4.1.2.9}
+\contentsline {subsubsection}{\numberline {4.1.2.10}user\discretionary {-}{}{}Defaults\discretionary {-}{}{}Controller}{9}{subsubsection.4.1.2.10}
+\contentsline {subsection}{\numberline {4.1.3}Property Documentation}{9}{subsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.3.1}bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Direction}{9}{subsubsection.4.1.3.1}
+\contentsline {subsubsection}{\numberline {4.1.3.2}bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Endpoint}{9}{subsubsection.4.1.3.2}
+\contentsline {subsubsection}{\numberline {4.1.3.3}bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length}{9}{subsubsection.4.1.3.3}
+\contentsline {subsubsection}{\numberline {4.1.3.4}console\discretionary {-}{}{}Background\discretionary {-}{}{}Color}{9}{subsubsection.4.1.3.4}
+\contentsline {subsubsection}{\numberline {4.1.3.5}console\discretionary {-}{}{}Data\discretionary {-}{}{}Text\discretionary {-}{}{}Color}{9}{subsubsection.4.1.3.5}
+\contentsline {subsubsection}{\numberline {4.1.3.6}console\discretionary {-}{}{}Error\discretionary {-}{}{}Text\discretionary {-}{}{}Color}{9}{subsubsection.4.1.3.6}
+\contentsline {subsubsection}{\numberline {4.1.3.7}console\discretionary {-}{}{}Information\discretionary {-}{}{}Text\discretionary {-}{}{}Color}{9}{subsubsection.4.1.3.7}
+\contentsline {subsubsection}{\numberline {4.1.3.8}control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Index}{9}{subsubsection.4.1.3.8}
+\contentsline {subsubsection}{\numberline {4.1.3.9}control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length}{9}{subsubsection.4.1.3.9}
+\contentsline {subsubsection}{\numberline {4.1.3.10}control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Request}{9}{subsubsection.4.1.3.10}
+\contentsline {subsubsection}{\numberline {4.1.3.11}control\discretionary {-}{}{}Transfer\discretionary {-}{}{}Value}{9}{subsubsection.4.1.3.11}
+\contentsline {subsubsection}{\numberline {4.1.3.12}device\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}D}{9}{subsubsection.4.1.3.12}
+\contentsline {subsubsection}{\numberline {4.1.3.13}device\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}D}{9}{subsubsection.4.1.3.13}
+\contentsline {subsubsection}{\numberline {4.1.3.14}display\discretionary {-}{}{}Hex\discretionary {-}{}{}Or\discretionary {-}{}{}Plain\discretionary {-}{}{}Text}{9}{subsubsection.4.1.3.14}
+\contentsline {subsubsection}{\numberline {4.1.3.15}request\discretionary {-}{}{}Destination}{9}{subsubsection.4.1.3.15}
+\contentsline {subsubsection}{\numberline {4.1.3.16}request\discretionary {-}{}{}Type}{9}{subsubsection.4.1.3.16}
+\contentsline {section}{\numberline {4.2}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer Class Reference}{9}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Method Documentation}{10}{subsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.1.1}allows\discretionary {-}{}{}Reverse\discretionary {-}{}{}Transformation}{10}{subsubsection.4.2.1.1}
+\contentsline {subsubsection}{\numberline {4.2.1.2}reverse\discretionary {-}{}{}Transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}{10}{subsubsection.4.2.1.2}
+\contentsline {subsubsection}{\numberline {4.2.1.3}transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}{10}{subsubsection.4.2.1.3}
+\contentsline {subsubsection}{\numberline {4.2.1.4}transformed\discretionary {-}{}{}Value\discretionary {-}{}{}Class}{10}{subsubsection.4.2.1.4}
+\contentsline {section}{\numberline {4.3}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter Class Reference}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Method Documentation}{11}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}allows\discretionary {-}{}{}Reverse\discretionary {-}{}{}Transformation}{11}{subsubsection.4.3.1.1}
+\contentsline {subsubsection}{\numberline {4.3.1.2}reverse\discretionary {-}{}{}Transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}{11}{subsubsection.4.3.1.2}
+\contentsline {subsubsection}{\numberline {4.3.1.3}transformed\discretionary {-}{}{}Value\discretionary {-}{}{}:}{11}{subsubsection.4.3.1.3}
+\contentsline {subsubsection}{\numberline {4.3.1.4}transformed\discretionary {-}{}{}Value\discretionary {-}{}{}Class}{11}{subsubsection.4.3.1.4}
+\contentsline {chapter}{\numberline {5}File Documentation}{13}{chapter.5}
+\contentsline {section}{\numberline {5.1}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.h File Reference}{13}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Macro Definition Documentation}{13}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.1}C\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}X}{13}{subsubsection.5.1.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.2}C\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}E\discretionary {-}{}{}X\discretionary {-}{}{}T}{13}{subsubsection.5.1.1.2}
+\contentsline {section}{\numberline {5.2}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}App\discretionary {-}{}{}Delegate.m File Reference}{13}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Variable Documentation}{14}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bm\discretionary {-}{}{}Request\discretionary {-}{}{}Destination\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bm\discretionary {-}{}{}Request\discretionary {-}{}{}Type\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.2}
+\contentsline {subsubsection}{\numberline {5.2.1.3}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}b\discretionary {-}{}{}Request\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.3}
+\contentsline {subsubsection}{\numberline {5.2.1.4}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}bulk\discretionary {-}{}{}Transfer\discretionary {-}{}{}Length\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.4}
+\contentsline {subsubsection}{\numberline {5.2.1.5}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Background\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.5}
+\contentsline {subsubsection}{\numberline {5.2.1.6}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Data\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.6}
+\contentsline {subsubsection}{\numberline {5.2.1.7}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Error\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.7}
+\contentsline {subsubsection}{\numberline {5.2.1.8}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Console\discretionary {-}{}{}Information\discretionary {-}{}{}Text\discretionary {-}{}{}Color\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.8}
+\contentsline {subsubsection}{\numberline {5.2.1.9}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Display\discretionary {-}{}{}Hex\discretionary {-}{}{}Or\discretionary {-}{}{}Plain\discretionary {-}{}{}Text\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.9}
+\contentsline {subsubsection}{\numberline {5.2.1.10}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}endpoint\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.10}
+\contentsline {subsubsection}{\numberline {5.2.1.11}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.11}
+\contentsline {subsubsection}{\numberline {5.2.1.12}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.12}
+\contentsline {subsubsection}{\numberline {5.2.1.13}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Index\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.13}
+\contentsline {subsubsection}{\numberline {5.2.1.14}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Length\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.14}
+\contentsline {subsubsection}{\numberline {5.2.1.15}C\discretionary {-}{}{}T\discretionary {-}{}{}Default\discretionary {-}{}{}\_\discretionary {-}{}{}w\discretionary {-}{}{}Value\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Key}{14}{subsubsection.5.2.1.15}
+\contentsline {section}{\numberline {5.3}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer.h File Reference}{14}{section.5.3}
+\contentsline {section}{\numberline {5.4}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}Hex\discretionary {-}{}{}String\discretionary {-}{}{}Transformer.m File Reference}{15}{section.5.4}
+\contentsline {section}{\numberline {5.5}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter.h File Reference}{15}{section.5.5}
+\contentsline {section}{\numberline {5.6}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}Number\discretionary {-}{}{}To\discretionary {-}{}{}String\discretionary {-}{}{}Formatter.m File Reference}{15}{section.5.6}
+\contentsline {section}{\numberline {5.7}U\discretionary {-}{}{}S\discretionary {-}{}{}B Toolbox/main.m File Reference}{15}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Function Documentation}{15}{subsection.5.7.1}
+\contentsline {subsubsection}{\numberline {5.7.1.1}main}{15}{subsubsection.5.7.1.1}
+\contentsline {part}{Index}{15}{subsubsection.5.7.1.1}
