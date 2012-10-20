@@ -12,4 +12,4 @@ I just started learning Doxygen, so it's pretty sparse right now.
 
 ## Prerequisites
 
-Xcode project settings assume you have LibUSB installed and located at `/opt/local/lib/libusb-1.0.0.dylib`.
+Xcode project settings assume you have LibUSB installed and located at `/opt/local/lib/libusb-1.0.0.dylib`. However, the Xcode project set up to include the dylib in the application bundle, so the user doesn't need to have it installed.
