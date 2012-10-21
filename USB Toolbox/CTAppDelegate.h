@@ -11,6 +11,8 @@
 
 #import <Cocoa/Cocoa.h>
 #include "libusb.h"
+#import "CTUSBDevice.h"
+
 
 @interface CTAppDelegate : NSObject <NSApplicationDelegate> {
 
@@ -18,16 +20,21 @@
   IBOutlet NSTextView               *consoleTextView;
   IBOutlet NSTextView               *inputTextView;
   IBOutlet NSUserDefaultsController *userDefaultsController;
-
+  IBOutlet NSTableView              *deviceTable;
+  IBOutlet NSArrayController        *deviceArrayController;
     
   libusb_device                     **allUSBDevices;            // pointer to pointer of device, used to retrieve a list of devices
   libusb_device_handle              *USBDeviceHandle;
-  libusb_device                     *theUSBDevice;
+  libusb_device                     *USBDevice;
   ssize_t                           numberOfUSBDevices;         // holds number of devices in list
 
   NSMutableAttributedString         *outputTextStorage;         // a pointer to ouputTexView's textStorage
   NSMutableAttributedString         *inputTextStorage;          // a pointer to inputTextView's textStorage
 }
+
+
+
+@property (copy) NSMutableArray *deviceArray;
 
 @property (copy) NSColor  *consoleErrorTextColor;
 @property (copy) NSColor  *consoleInformationTextColor;

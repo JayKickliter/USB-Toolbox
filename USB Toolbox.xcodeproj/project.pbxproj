@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C0141F9E1634566B00E157C9 /* CTUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0141F9D1634566B00E157C9 /* CTUSBDevice.m */; };
 		C03266A1162E2830007A4F4E /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		C03266A2162E283F007A4F4E /* libusb-1.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; };
 		C04D9E0A162342E000D83997 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D9E09162342E000D83997 /* Cocoa.framework */; };
@@ -49,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C0141F9C1634566B00E157C9 /* CTUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUSBDevice.h; sourceTree = "<group>"; };
+		C0141F9D1634566B00E157C9 /* CTUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUSBDevice.m; sourceTree = "<group>"; };
 		C01833601623741E007E6E28 /* libusb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libusb.h; path = "/opt/local/include/libusb-1.0/libusb.h"; sourceTree = "<absolute>"; };
 		C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "../../../../opt/local/lib/libusb-1.0.0.dylib"; sourceTree = SOURCE_ROOT; };
 		C04D9E05162342E000D83997 /* USB Toolbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB Toolbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +144,8 @@
 				C04D9E1B162342E000D83997 /* CTAppDelegate.h */,
 				C04D9E1C162342E000D83997 /* CTAppDelegate.m */,
 				C04D9E1E162342E100D83997 /* MainMenu.xib */,
+				C0141F9C1634566B00E157C9 /* CTUSBDevice.h */,
+				C0141F9D1634566B00E157C9 /* CTUSBDevice.m */,
 				C0807DD016298FEE00A563B7 /* Images */,
 				C04D9E10162342E000D83997 /* Supporting Files */,
 			);
@@ -272,6 +277,7 @@
 				C04D9E1D162342E000D83997 /* CTAppDelegate.m in Sources */,
 				C09D6ECD16302E6D0050EFB1 /* CTNumberToHexStringTransformer.m in Sources */,
 				C09D6ECE16302E6D0050EFB1 /* CTNumberToStringFormatter.m in Sources */,
+				C0141F9E1634566B00E157C9 /* CTUSBDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +401,7 @@
 		C04D9E25162342E100D83997 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "USB Toolbox/USB Toolbox-Prefix.pch";
