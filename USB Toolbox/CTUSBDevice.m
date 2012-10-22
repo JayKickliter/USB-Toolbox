@@ -10,12 +10,15 @@
 
 @implementation CTUSBDevice
 
+@synthesize handle;
+@synthesize device;
 @synthesize bus;
 @synthesize address;
 @synthesize VID;
 @synthesize PID;
-@synthesize manufacturer;
-@synthesize device;
+@synthesize manufacturerString;
+@synthesize deviceString;
+
 
 
 - (id) init

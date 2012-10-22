@@ -22,6 +22,8 @@
   IBOutlet NSUserDefaultsController *userDefaultsController;
   IBOutlet NSTableView              *deviceTable;
   IBOutlet NSArrayController        *deviceArrayController;
+
+  BOOL                              rebuildingDeviceList;
     
   libusb_device                     **allUSBDevices;            // pointer to pointer of device, used to retrieve a list of devices
   libusb_device_handle              *USBDeviceHandle;
@@ -67,7 +69,7 @@
  
  The string should have byte sized hex symbols speperated by spaces, with or without leading a `0x'. Leading zeros are optional.
  
- A valid example: `0xdE ad Fe ed 0xA 0xb c 0d'.
+ A valid example: `0xdE ad Fe ed 0xA 0xb c 0d`.
 
  @param theString
  @returns NSData
@@ -76,12 +78,12 @@
 
 
 - (IBAction) doBulkTransfer:            (id) sender;
-- (IBAction) doUSBControlTransfer:      (id) sender;
+- (IBAction) doControlTransfer:      (id) sender;
 - (IBAction) listAllAttachedUSBDevices: (id) sender;
 - (IBAction) clearConsole:              (id) sender;
 
 
-UInt8 convertNSStringToUInt8(NSString *theString);
-UInt16 convertNSStringToUInt16( NSString *theString);
+//UInt8 convertNSStringToUInt8(NSString *theString);
+//UInt16 convertNSStringToUInt16( NSString *theString);
 
 @end

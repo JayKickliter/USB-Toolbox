@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "libusb.h"
 
 @interface CTUSBDevice : NSObject
 
-@property (retain)  NSNumber  *bus;
-@property (retain)  NSNumber  *address;
-@property (retain)  NSNumber  *VID;
-@property (retain)  NSNumber  *PID;
-@property (copy)    NSString  *manufacturer;
-@property (copy)    NSString  *device;
+@property (readwrite) libusb_device_handle  *handle;
+@property (readwrite) libusb_device         *device;
+@property (retain)    NSNumber              *bus;
+@property (retain)    NSNumber              *address;
+@property (retain)    NSNumber              *VID;
+@property (retain)    NSNumber              *PID;
+@property (copy)      NSString              *manufacturerString;
+@property (copy)      NSString              *deviceString;
 
 @end
