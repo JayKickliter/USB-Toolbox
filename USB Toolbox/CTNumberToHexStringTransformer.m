@@ -35,7 +35,7 @@
 
   NSNumber *number = value;
 
-  NSString *returnString = [ NSString stringWithFormat: @"%llx", [ number longLongValue ]];
+  NSString *returnString = [ NSString stringWithFormat: @"%llX", [ number longLongValue ]];
 
   return returnString;
 }
