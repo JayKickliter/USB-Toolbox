@@ -300,7 +300,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   if ( !( bmRequest & 0x80) ) { // is it an OUT (host -> device) request?    
 
     NSString      *inputHexString = [ inputTextStorage string ];                // TODO: create a method to encapulate this and the next line in one call
-    NSData        *inputData      = [ self dataFromHexString: inputHexString ];
+    NSData        *inputData      = [ NSData dataFromHexString: inputHexString ];
     NSUInteger    inputLength     = [ inputData length ];
     unsigned char *inputDataBytes = (unsigned char *) [ inputData bytes ];
 
@@ -398,7 +398,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   if ( !( [ bulkTransferDirection unsignedCharValue ] & 0x80) ) {     // This is NOT an out transfer, therefor it's an IN transfer
 
     NSString      *inputString    = [ inputTextStorage string ];
-    NSData        *inputData      = [ self dataFromHexString: inputString ];
+    NSData        *inputData      = [ NSData dataFromHexString: inputString ];
     NSUInteger    inputLength     = [ inputData length ];
     unsigned char *inputDataBytes = (unsigned char *) [ inputData bytes ];
 
@@ -475,122 +475,10 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
 
 
 
-//- (IBAction) listAllAttachedUSBDevices: (id)sender
-//{
-//  // clear the deviceList
-//  NSRange range = NSMakeRange(0, [[deviceArrayController arrangedObjects] count]);
-//  [ deviceArrayController removeObjectsAtArrangedObjectIndexes: [ NSIndexSet indexSetWithIndexesInRange: range ]];
-//
-//  UInt8   theBus;
-//  UInt8   theAddress;
-//  int     i;
-//  int     result;
-//  struct  libusb_device_descriptor  deviceDescriptor;
-//  struct  libusb_device_handle      *deviceHandle;
-//  struct  libusb_device             *theUSBDevice;
-//
-//  // libusb_get_string_descriptor_ascii requires buffers to store
-//  // the string descriptor.
-//  const int stringDesciptorBufferLength = 64;
-//  unsigned char theManufacturerStringDescriptorBuffer [stringDesciptorBufferLength];
-//  unsigned char theDeviceStringDescriptorBuffer       [stringDesciptorBufferLength];
-//
-//  NSMutableString *outputString ;
-//  NSString        *theManufacturer;
-//  NSString        *theDeviceName;
-//
-//  // Get a list of all USB devices. Also, libusb_get_device_list
-//  // returns the total number of devices.
-//  //
-//  numberOfUSBDevices = libusb_get_device_list(NULL, &allUSBDevices);
-//
-//  // Iterate through the list and print them to the console.
-//  //
-//  for ( i = 0; i < numberOfUSBDevices; i++ ) {
-////    CTUSBDevice *newUSBDevice = [ CTUSBDevice new ];
-////    NSMutableDictionary *newUSBDevice = [ NSMutableDictionary new ];
-//
-//    //
-//    // To speed up display of all devices we're printing the output
-//    // for each device in the device list, instead of creating a
-//    // single string for all devices and printing in one shot.
-//    // This doesn't appear to make any difference.
-//    //
-//
-//    // Make a new string for the current device.
-//    //
-//    outputString = [ NSMutableString new];
-//
-//
-//    theUSBDevice  = allUSBDevices[i];
-//    theBus        = libusb_get_bus_number(theUSBDevice);
-//    theAddress    = libusb_get_device_address(theUSBDevice);
-//
-//
-//
-//    result = libusb_open( theUSBDevice,
-//                          &deviceHandle );
-//    if ( result == 0 ) {
-//      result = libusb_get_string_descriptor_ascii	( deviceHandle,
-//                                                    1,
-//                                                    theManufacturerStringDescriptorBuffer,
-//                                                    stringDesciptorBufferLength );
-//      if ( result >= 0 ) {
-//        // result >= 0, so not an error
-//        //
-//        // set last byte of the c string to 0 to make a correct null terminated string
-//        //
-//        theManufacturerStringDescriptorBuffer[result] = 0;
-//        theManufacturer = [ NSString stringWithCString: (const char *) theManufacturerStringDescriptorBuffer encoding:NSASCIIStringEncoding ];
-//      } else {
-//        // we got an error, and weren't able to get the string descriptor
-//        //
-//        theManufacturer = @"Unknown";
-//      }
-//
-//      result = libusb_get_string_descriptor_ascii	( deviceHandle,
-//                                                   2,
-//                                                   theDeviceStringDescriptorBuffer,
-//                                                   stringDesciptorBufferLength );
-//      if ( result >= 0) {
-//        theDeviceName = [ NSString stringWithCString: (const char *) theDeviceStringDescriptorBuffer encoding:NSASCIIStringEncoding ];
-//        [ outputString appendFormat: @"%@\n", theDeviceName ];
-//      } else {
-//        theDeviceName = @"Unknown";
-//        [ outputString appendString: @"Unknown\n" ];
-//      }
-//
-//      libusb_close( deviceHandle );
-//      
-//    }
-//
-//    result = libusb_get_device_descriptor(theUSBDevice, &deviceDescriptor);
-//    if ( result < 0) {
-//      [outputString appendString: @"  Failed to get device a descriptor for this device\n" ];
-//    } else {
-//      [ outputString appendFormat:@"  Manufacturer: %@\n           Bus: %3d\n       Address: %d3\n           VID: %04X\n           PID: %04X\n", theManufacturer, theBus, theAddress, deviceDescriptor.idVendor, deviceDescriptor.idProduct];
-//    }
-//    [ self printString: outputString withTextColor: [ self consoleInformationTextColor ]];
-//
-//    CTUSBDevice *newUSBDevice = [ CTUSBDevice new ];
-//    [ newUSBDevice setHandle: deviceHandle ];
-//    [ newUSBDevice setBus: [ NSNumber numberWithUnsignedChar: theBus ]];
-//    [ newUSBDevice setAddress: [ NSNumber numberWithUnsignedChar: theAddress ]];
-//    [ newUSBDevice setVID: [ NSNumber numberWithUnsignedInt: deviceDescriptor.idVendor ]];
-//    [ newUSBDevice setPID: [NSNumber numberWithUnsignedInt: deviceDescriptor.idProduct ]];
-//    [ newUSBDevice setManufacturer: theManufacturer ];
-//    [ newUSBDevice setDevice: theDeviceName ];
-//    [ deviceArrayController addObject: newUSBDevice ];
-//  }
-//
-//  [ self printNewLine: 1 ];
-//}
-
-
-
 - ( IBAction) listAllAttachedUSBDevices:(id)sender
 {
   rebuildingDeviceList = TRUE;
+  
   
   if ( USBDeviceHandle != NULL ) {
     
@@ -852,42 +740,13 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
 
 
 
-
-
-
-
-#pragma mark Helper Functions/Methods
-
-- (NSData *) dataFromHexString: (NSString *) theString
-{
-  unsigned int i;
-
-  NSScanner* scanner = [NSScanner scannerWithString: theString ];
-	[scanner setCharactersToBeSkipped: [NSCharacterSet characterSetWithCharactersInString: @" "]];
-
-  NSMutableData *returnData = [ NSMutableData new ];
-
-	while ([scanner isAtEnd] == NO)
-	{
-		if([scanner scanHexInt: &i] && i <= 255 )
-		{
-			[ returnData appendBytes: &i length: 1 ];
-		}
-		else
-			return nil;
-	}
-  return returnData;
-}
-
-
-
-
-
-
 #pragma mark Shutdown
 
 - (void) applicationWillTerminate:(NSNotification *)notification
 {
+  if ( USBDeviceHandle ) {
+    libusb_close( USBDeviceHandle );
+  }
   libusb_free_device_list(allUSBDevices, 1);    //free the list, unref the devices in it
   libusb_exit(NULL);                            //close the session
 }

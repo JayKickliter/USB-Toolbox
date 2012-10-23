@@ -11,6 +11,7 @@
 
 #import <Cocoa/Cocoa.h>
 #include "libusb.h"
+#include "NSData+CTDataExtensions.h"
 #import "CTUSBDevice.h"
 
 
@@ -59,31 +60,14 @@
 
 
 - (void) printString:           (NSString *)      theString;
-- (void) printData:             (unsigned char *) theData     length:       (int) theLength;
-- (void) printHexFromData:      (unsigned char *) theData     length:       (int) theLength;
-- (void) printPlainTextFromData:(unsigned char *) theData     length:       (int) theLength;
-- (void) printLibUSBError:      (int)             theError    withOperation:(NSString *) theOperation;
-
-/**
- Convers a hex formatted NSString to NSData.
- 
- The string should have byte sized hex symbols speperated by spaces, with or without leading a `0x'. Leading zeros are optional.
- 
- A valid example: `0xdE ad Fe ed 0xA 0xb c 0d`.
-
- @param theString
- @returns NSData
-*/
-- (NSData *) dataFromHexString: (NSString *) theString;
-
+- (void) printData:             (unsigned char *) theData            length: (int) theLength;
+- (void) printHexFromData:      (unsigned char *) theData            length: (int) theLength;
+- (void) printPlainTextFromData:(unsigned char *) theData            length: (int) theLength;
+- (void) printLibUSBError:      (int)             theError    withOperation: (NSString *) theOperation;
 
 - (IBAction) doBulkTransfer:            (id) sender;
-- (IBAction) doControlTransfer:      (id) sender;
+- (IBAction) doControlTransfer:         (id) sender;
 - (IBAction) listAllAttachedUSBDevices: (id) sender;
 - (IBAction) clearConsole:              (id) sender;
-
-
-//UInt8 convertNSStringToUInt8(NSString *theString);
-//UInt16 convertNSStringToUInt16( NSString *theString);
 
 @end

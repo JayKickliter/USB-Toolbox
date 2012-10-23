@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		C0141F9E1634566B00E157C9 /* CTUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C0141F9D1634566B00E157C9 /* CTUSBDevice.m */; };
+		C0141FA516356D7800E157C9 /* NSData+CTDataExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C0141FA416356D7800E157C9 /* NSData+CTDataExtensions.m */; };
 		C03266A1162E2830007A4F4E /* libusb-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		C03266A2162E283F007A4F4E /* libusb-1.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */; };
 		C04D9E0A162342E000D83997 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D9E09162342E000D83997 /* Cocoa.framework */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		C0141F9C1634566B00E157C9 /* CTUSBDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUSBDevice.h; sourceTree = "<group>"; };
 		C0141F9D1634566B00E157C9 /* CTUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUSBDevice.m; sourceTree = "<group>"; };
+		C0141FA316356D7800E157C9 /* NSData+CTDataExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CTDataExtensions.h"; sourceTree = "<group>"; };
+		C0141FA416356D7800E157C9 /* NSData+CTDataExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CTDataExtensions.m"; sourceTree = "<group>"; };
 		C01833601623741E007E6E28 /* libusb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libusb.h; path = "/opt/local/include/libusb-1.0/libusb.h"; sourceTree = "<absolute>"; };
 		C03266A0162E2830007A4F4E /* libusb-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libusb-1.0.0.dylib"; path = "../../../../opt/local/lib/libusb-1.0.0.dylib"; sourceTree = SOURCE_ROOT; };
 		C04D9E05162342E000D83997 /* USB Toolbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB Toolbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,15 +140,17 @@
 		C04D9E0F162342E000D83997 /* USB Toolbox */ = {
 			isa = PBXGroup;
 			children = (
+				C04D9E1B162342E000D83997 /* CTAppDelegate.h */,
+				C04D9E1C162342E000D83997 /* CTAppDelegate.m */,
+				C0141F9C1634566B00E157C9 /* CTUSBDevice.h */,
+				C0141F9D1634566B00E157C9 /* CTUSBDevice.m */,
 				C09D6EC916302E6D0050EFB1 /* CTNumberToHexStringTransformer.h */,
 				C09D6ECA16302E6D0050EFB1 /* CTNumberToHexStringTransformer.m */,
 				C09D6ECB16302E6D0050EFB1 /* CTNumberToStringFormatter.h */,
 				C09D6ECC16302E6D0050EFB1 /* CTNumberToStringFormatter.m */,
-				C04D9E1B162342E000D83997 /* CTAppDelegate.h */,
-				C04D9E1C162342E000D83997 /* CTAppDelegate.m */,
+				C0141FA316356D7800E157C9 /* NSData+CTDataExtensions.h */,
+				C0141FA416356D7800E157C9 /* NSData+CTDataExtensions.m */,
 				C04D9E1E162342E100D83997 /* MainMenu.xib */,
-				C0141F9C1634566B00E157C9 /* CTUSBDevice.h */,
-				C0141F9D1634566B00E157C9 /* CTUSBDevice.m */,
 				C0807DD016298FEE00A563B7 /* Images */,
 				C04D9E10162342E000D83997 /* Supporting Files */,
 			);
@@ -278,6 +283,7 @@
 				C09D6ECD16302E6D0050EFB1 /* CTNumberToHexStringTransformer.m in Sources */,
 				C09D6ECE16302E6D0050EFB1 /* CTNumberToStringFormatter.m in Sources */,
 				C0141F9E1634566B00E157C9 /* CTUSBDevice.m in Sources */,
+				C0141FA516356D7800E157C9 /* NSData+CTDataExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +435,7 @@
 				C0141E2416321A9600E157C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C04D9DFF162342E000D83997 /* Build configuration list for PBXProject "USB Toolbox" */ = {
 			isa = XCConfigurationList;
