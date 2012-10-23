@@ -5,5 +5,7 @@ var searchData=
   ['ctnumbertohexstringtransformer_2eh',['CTNumberToHexStringTransformer.h',['../_c_t_number_to_hex_string_transformer_8h.html',1,'']]],
   ['ctnumbertohexstringtransformer_2em',['CTNumberToHexStringTransformer.m',['../_c_t_number_to_hex_string_transformer_8m.html',1,'']]],
   ['ctnumbertostringformatter_2eh',['CTNumberToStringFormatter.h',['../_c_t_number_to_string_formatter_8h.html',1,'']]],
-  ['ctnumbertostringformatter_2em',['CTNumberToStringFormatter.m',['../_c_t_number_to_string_formatter_8m.html',1,'']]]
+  ['ctnumbertostringformatter_2em',['CTNumberToStringFormatter.m',['../_c_t_number_to_string_formatter_8m.html',1,'']]],
+  ['ctusbdevice_2eh',['CTUSBDevice.h',['../_c_t_u_s_b_device_8h.html',1,'']]],
+  ['ctusbdevice_2em',['CTUSBDevice.m',['../_c_t_u_s_b_device_8m.html',1,'']]]
 ];

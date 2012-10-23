@@ -270,13 +270,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>doUSBControlTransfer:</Name>
+      <Name>doControlTransfer:</Name>
       <APILanguage>occ</APILanguage>
       <Type>instm</Type>
       <Scope>CTAppDelegate</Scope>
     </TokenIdentifier>
     <Path>interface_c_t_app_delegate.html</Path>
-    <Anchor>a477526454468a7a90dd85aaffad30a57</Anchor>
+    <Anchor>a5589f0a49987a2edffcf4aac85077d28</Anchor>
     <DeclaredIn>CTAppDelegate.h</DeclaredIn>
   </Token>
   <Token>
@@ -299,28 +299,6 @@
     </TokenIdentifier>
     <Path>interface_c_t_app_delegate.html</Path>
     <Anchor>ae6fb4f8759991c57bfdd0eb1c89821e3</Anchor>
-    <DeclaredIn>CTAppDelegate.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>convertNSStringToUInt8</Name>
-      <APILanguage>occ</APILanguage>
-      <Type>instm</Type>
-      <Scope>CTAppDelegate</Scope>
-    </TokenIdentifier>
-    <Path>interface_c_t_app_delegate.html</Path>
-    <Anchor>a8e6db21c4bf9f1813527f4951572b3c8</Anchor>
-    <DeclaredIn>CTAppDelegate.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>convertNSStringToUInt16</Name>
-      <APILanguage>occ</APILanguage>
-      <Type>instm</Type>
-      <Scope>CTAppDelegate</Scope>
-    </TokenIdentifier>
-    <Path>interface_c_t_app_delegate.html</Path>
-    <Anchor>ae19f27002aa800030e0fa74b2d6b5237</Anchor>
     <DeclaredIn>CTAppDelegate.h</DeclaredIn>
   </Token>
   <Token>
@@ -365,6 +343,36 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>deviceTable</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>CTAppDelegate</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_app_delegate.html</Path>
+    <Anchor>aa9da52eef008be58cd46240bd866fc4e</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>deviceArrayController</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>CTAppDelegate</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_app_delegate.html</Path>
+    <Anchor>a39b7c3b8cf871476b88dbd4bcd75c375</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rebuildingDeviceList</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>CTAppDelegate</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_app_delegate.html</Path>
+    <Anchor>a1b55e71f0fcf89b448e51efd5ecd0915</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>allUSBDevices</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -385,13 +393,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>theUSBDevice</Name>
+      <Name>USBDevice</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
       <Scope>CTAppDelegate</Scope>
     </TokenIdentifier>
     <Path>interface_c_t_app_delegate.html</Path>
-    <Anchor>ac20589aa72af723c196a1251c22fc093</Anchor>
+    <Anchor>a98b42a4c60f53c6a31c1554bec3bd9bb</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -422,6 +430,16 @@
     </TokenIdentifier>
     <Path>interface_c_t_app_delegate.html</Path>
     <Anchor>a267286c82789444b42d30238c62b38bc</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>deviceArray</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTAppDelegate</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_app_delegate.html</Path>
+    <Anchor>abb817f3911fa838a7715173c81256f00</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -692,5 +710,117 @@
     <Path>interface_c_t_number_to_string_formatter.html</Path>
     <Anchor>a59aa7be7f9270cf40a8e01bd21183520</Anchor>
     <DeclaredIn>CTNumberToStringFormatter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>CTUSBDevice</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <DeclaredIn>CTUSBDevice.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>handle</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>a76090dc447b52913d038e07dfe672f5a</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>device</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>afbcf0aa1dd4cb4b4cf0b094790a44884</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>bus</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>af3ef7825f48c953823546eb03fa1ddde</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>address</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>a73172a48b72ca41f4e1b47af6d8b3cfc</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>VID</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>ac0c96b6d796529bf0c38611c9b412896</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PID</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>a455ff3ce8f9e14f91139a4f62558aa80</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>manufacturerString</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>a65ff7b894401291eabdaefe0182d41aa</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>deviceString</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>instp</Type>
+      <Scope>CTUSBDevice</Scope>
+    </TokenIdentifier>
+    <Path>interface_c_t_u_s_b_device.html</Path>
+    <Anchor>a7f8a84b5aa33f6a961a2c9d8f43127e9</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>NSData(CTDataFromHexString)</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cat</Type>
+      <Scope>NSData(CTDataFromHexString)</Scope>
+    </TokenIdentifier>
+    <Path>category_n_s_data_07_c_t_data_from_hex_string_08.html</Path>
+    <DeclaredIn>NSData+CTDataFromHexString.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>dataFromHexString:</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>func</Type>
+      <Scope>NSData(CTDataFromHexString)</Scope>
+    </TokenIdentifier>
+    <Path>category_n_s_data_07_c_t_data_from_hex_string_08.html</Path>
+    <Anchor>a3c36b1c31951a20ea2a23aebe7385387</Anchor>
+    <Abstract>Convers a hex formatted NSString to NSData.</Abstract>
+    <DeclaredIn>NSData+CTDataFromHexString.h</DeclaredIn>
   </Token>
 </Tokens>

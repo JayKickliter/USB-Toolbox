@@ -10,8 +10,6 @@ var searchData=
   ['controltransferlength',['controlTransferLength',['../interface_c_t_app_delegate.html#afb1667e9e2db3e2b289a099508a338d5',1,'CTAppDelegate']]],
   ['controltransferrequest',['controlTransferRequest',['../interface_c_t_app_delegate.html#aade0217b509c082080b919e7a9f55046',1,'CTAppDelegate']]],
   ['controltransfervalue',['controlTransferValue',['../interface_c_t_app_delegate.html#a62fe8f350142e22ead502a51f201cb1f',1,'CTAppDelegate']]],
-  ['convertnsstringtouint16',['convertNSStringToUInt16',['../interface_c_t_app_delegate.html#ae19f27002aa800030e0fa74b2d6b5237',1,'CTAppDelegate']]],
-  ['convertnsstringtouint8',['convertNSStringToUInt8',['../interface_c_t_app_delegate.html#a8e6db21c4bf9f1813527f4951572b3c8',1,'CTAppDelegate']]],
   ['ct_5fdisplay_5fhex',['CT_DISPLAY_HEX',['../_c_t_app_delegate_8h.html#ad26c49e2b9116716b7fa61e3d9030c39',1,'CTAppDelegate.h']]],
   ['ct_5fdisplay_5fplain_5ftext',['CT_DISPLAY_PLAIN_TEXT',['../_c_t_app_delegate_8h.html#a917b853c82a6172d39b8275fb7e80864',1,'CTAppDelegate.h']]],
   ['ctappdelegate',['CTAppDelegate',['../interface_c_t_app_delegate.html',1,'']]],
@@ -37,5 +35,8 @@ var searchData=
   ['ctnumbertohexstringtransformer_2em',['CTNumberToHexStringTransformer.m',['../_c_t_number_to_hex_string_transformer_8m.html',1,'']]],
   ['ctnumbertostringformatter',['CTNumberToStringFormatter',['../interface_c_t_number_to_string_formatter.html',1,'']]],
   ['ctnumbertostringformatter_2eh',['CTNumberToStringFormatter.h',['../_c_t_number_to_string_formatter_8h.html',1,'']]],
-  ['ctnumbertostringformatter_2em',['CTNumberToStringFormatter.m',['../_c_t_number_to_string_formatter_8m.html',1,'']]]
+  ['ctnumbertostringformatter_2em',['CTNumberToStringFormatter.m',['../_c_t_number_to_string_formatter_8m.html',1,'']]],
+  ['ctusbdevice',['CTUSBDevice',['../interface_c_t_u_s_b_device.html',1,'']]],
+  ['ctusbdevice_2eh',['CTUSBDevice.h',['../_c_t_u_s_b_device_8h.html',1,'']]],
+  ['ctusbdevice_2em',['CTUSBDevice.m',['../_c_t_u_s_b_device_8m.html',1,'']]]
 ];

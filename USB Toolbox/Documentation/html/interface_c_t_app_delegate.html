@@ -118,16 +118,12 @@ Instance Methods</h2></td></tr>
 <tr class="separator:ae71bc249cd087494e9b00e49988b5b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0061d4cbac40771a21e02323bedbf32b"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#a0061d4cbac40771a21e02323bedbf32b">doBulkTransfer:</a></td></tr>
 <tr class="separator:a0061d4cbac40771a21e02323bedbf32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a477526454468a7a90dd85aaffad30a57"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#a477526454468a7a90dd85aaffad30a57">doUSBControlTransfer:</a></td></tr>
-<tr class="separator:a477526454468a7a90dd85aaffad30a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5589f0a49987a2edffcf4aac85077d28"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#a5589f0a49987a2edffcf4aac85077d28">doControlTransfer:</a></td></tr>
+<tr class="separator:a5589f0a49987a2edffcf4aac85077d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21bf37f0abad2c4ba4728db09b3eb6e5"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#a21bf37f0abad2c4ba4728db09b3eb6e5">listAllAttachedUSBDevices:</a></td></tr>
 <tr class="separator:a21bf37f0abad2c4ba4728db09b3eb6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6fb4f8759991c57bfdd0eb1c89821e3"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#ae6fb4f8759991c57bfdd0eb1c89821e3">clearConsole:</a></td></tr>
 <tr class="separator:ae6fb4f8759991c57bfdd0eb1c89821e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e6db21c4bf9f1813527f4951572b3c8"><td class="memItemLeft" align="right" valign="top">(UInt8)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#a8e6db21c4bf9f1813527f4951572b3c8">convertNSStringToUInt8</a></td></tr>
-<tr class="separator:a8e6db21c4bf9f1813527f4951572b3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae19f27002aa800030e0fa74b2d6b5237"><td class="memItemLeft" align="right" valign="top">(UInt16)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_t_app_delegate.html#ae19f27002aa800030e0fa74b2d6b5237">convertNSStringToUInt16</a></td></tr>
-<tr class="separator:ae19f27002aa800030e0fa74b2d6b5237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -139,12 +135,18 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:abf8e0f79b36a4b23262ba2a2d29eabe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55373d5265a108cb12510bd086aa15e8"><td class="memItemLeft" align="right" valign="top">IBOutlet NSUserDefaultsController *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a55373d5265a108cb12510bd086aa15e8">userDefaultsController</a></td></tr>
 <tr class="separator:a55373d5265a108cb12510bd086aa15e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9da52eef008be58cd46240bd866fc4e"><td class="memItemLeft" align="right" valign="top">IBOutlet NSTableView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#aa9da52eef008be58cd46240bd866fc4e">deviceTable</a></td></tr>
+<tr class="separator:aa9da52eef008be58cd46240bd866fc4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b7c3b8cf871476b88dbd4bcd75c375"><td class="memItemLeft" align="right" valign="top">IBOutlet NSArrayController *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a39b7c3b8cf871476b88dbd4bcd75c375">deviceArrayController</a></td></tr>
+<tr class="separator:a39b7c3b8cf871476b88dbd4bcd75c375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b55e71f0fcf89b448e51efd5ecd0915"><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a1b55e71f0fcf89b448e51efd5ecd0915">rebuildingDeviceList</a></td></tr>
+<tr class="separator:a1b55e71f0fcf89b448e51efd5ecd0915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d80eb0a8fb6f9c373648cba3dbe5b26"><td class="memItemLeft" align="right" valign="top">libusb_device **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a9d80eb0a8fb6f9c373648cba3dbe5b26">allUSBDevices</a></td></tr>
 <tr class="separator:a9d80eb0a8fb6f9c373648cba3dbe5b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0efa5af44bc03361f0953b7946461635"><td class="memItemLeft" align="right" valign="top">libusb_device_handle *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a0efa5af44bc03361f0953b7946461635">USBDeviceHandle</a></td></tr>
 <tr class="separator:a0efa5af44bc03361f0953b7946461635"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20589aa72af723c196a1251c22fc093"><td class="memItemLeft" align="right" valign="top">libusb_device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#ac20589aa72af723c196a1251c22fc093">theUSBDevice</a></td></tr>
-<tr class="separator:ac20589aa72af723c196a1251c22fc093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98b42a4c60f53c6a31c1554bec3bd9bb"><td class="memItemLeft" align="right" valign="top">libusb_device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a98b42a4c60f53c6a31c1554bec3bd9bb">USBDevice</a></td></tr>
+<tr class="separator:a98b42a4c60f53c6a31c1554bec3bd9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab4901a3d0ce6c86771365bbf1645eeb"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#aab4901a3d0ce6c86771365bbf1645eeb">numberOfUSBDevices</a></td></tr>
 <tr class="separator:aab4901a3d0ce6c86771365bbf1645eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46c927de3b01529297fa0e078e486f19"><td class="memItemLeft" align="right" valign="top">NSMutableAttributedString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a46c927de3b01529297fa0e078e486f19">outputTextStorage</a></td></tr>
@@ -154,6 +156,8 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
+<tr class="memitem:abb817f3911fa838a7715173c81256f00"><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#abb817f3911fa838a7715173c81256f00">deviceArray</a></td></tr>
+<tr class="separator:abb817f3911fa838a7715173c81256f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0bb80237b8aa297ec48dec224eddbb7"><td class="memItemLeft" align="right" valign="top">NSColor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#ab0bb80237b8aa297ec48dec224eddbb7">consoleErrorTextColor</a></td></tr>
 <tr class="separator:ab0bb80237b8aa297ec48dec224eddbb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b184ad30f043f8eb642ef9f21f11555"><td class="memItemLeft" align="right" valign="top">NSColor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_t_app_delegate.html#a5b184ad30f043f8eb642ef9f21f11555">consoleInformationTextColor</a></td></tr>
@@ -204,38 +208,6 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae19f27002aa800030e0fa74b2d6b5237"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (UInt16) convertNSStringToUInt16 </td>
-          <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>theString</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8e6db21c4bf9f1813527f4951572b3c8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (UInt8) convertNSStringToUInt8 </td>
-          <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>theString</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ae71bc249cd087494e9b00e49988b5b55"></a>
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +224,7 @@ Properties</h2></td></tr>
 
 <p>Convers a hex formatted NSString to NSData. </p>
 <p>The string should have byte sized hex symbols speperated by spaces, with or without leading a `0x'. Leading zeros are optional.</p>
-<p>A valid example: `0xdE ad Fe ed 0xA 0xb c 0d'.</p>
+<p>A valid example: <code>0xdE ad Fe ed 0xA 0xb c 0d</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">theString</td><td></td></tr>
@@ -279,12 +251,12 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a477526454468a7a90dd85aaffad30a57"></a>
+<a class="anchor" id="a5589f0a49987a2edffcf4aac85077d28"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (IBAction) doUSBControlTransfer: </td>
+          <td class="memname">- (IBAction) doControlTransfer: </td>
           <td></td>
           <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>sender</em></td>
@@ -472,6 +444,46 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a39b7c3b8cf871476b88dbd4bcd75c375"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBOutlet NSArrayController*) deviceArrayController</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa9da52eef008be58cd46240bd866fc4e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBOutlet NSTableView*) deviceTable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a267286c82789444b42d30238c62b38bc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -572,7 +584,7 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac20589aa72af723c196a1251c22fc093"></a>
+<a class="anchor" id="a1b55e71f0fcf89b448e51efd5ecd0915"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -580,7 +592,27 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">- (libusb_device*) theUSBDevice</td>
+          <td class="memname">- (BOOL) rebuildingDeviceList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a98b42a4c60f53c6a31c1554bec3bd9bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (libusb_device*) USBDevice</td>
         </tr>
       </table>
   </td>
@@ -853,6 +885,26 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="abb817f3911fa838a7715173c81256f00"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSMutableArray*) deviceArray</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">atomic</span><span class="mlabel">copy</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a5803369bf1901ee34be36dbdd3eb3734"></a>
 <div class="memitem">
 <div class="memproto">
@@ -960,7 +1012,7 @@ Properties</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 20 2012 10:41:23 for USB Toolbox by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 22 2012 08:10:43 for USB Toolbox by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

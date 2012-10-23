@@ -28,15 +28,11 @@ Inheritance diagram for C\-T\-App\-Delegate\-:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Convers a hex formatted N\-S\-String to N\-S\-Data. \end{DoxyCompactList}\item 
 (I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a0061d4cbac40771a21e02323bedbf32b}{do\-Bulk\-Transfer\-:}
 \item 
-(I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a477526454468a7a90dd85aaffad30a57}{do\-U\-S\-B\-Control\-Transfer\-:}
+(I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a5589f0a49987a2edffcf4aac85077d28}{do\-Control\-Transfer\-:}
 \item 
 (I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_a21bf37f0abad2c4ba4728db09b3eb6e5}{list\-All\-Attached\-U\-S\-B\-Devices\-:}
 \item 
 (I\-B\-Action) -\/ \hyperlink{interface_c_t_app_delegate_ae6fb4f8759991c57bfdd0eb1c89821e3}{clear\-Console\-:}
-\item 
-(U\-Int8) -\/ \hyperlink{interface_c_t_app_delegate_a8e6db21c4bf9f1813527f4951572b3c8}{convert\-N\-S\-String\-To\-U\-Int8}
-\item 
-(U\-Int16) -\/ \hyperlink{interface_c_t_app_delegate_ae19f27002aa800030e0fa74b2d6b5237}{convert\-N\-S\-String\-To\-U\-Int16}
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -49,11 +45,17 @@ I\-B\-Outlet N\-S\-Text\-View $\ast$ \hyperlink{interface_c_t_app_delegate_abf8e
 \item 
 I\-B\-Outlet N\-S\-User\-Defaults\-Controller $\ast$ \hyperlink{interface_c_t_app_delegate_a55373d5265a108cb12510bd086aa15e8}{user\-Defaults\-Controller}
 \item 
+I\-B\-Outlet N\-S\-Table\-View $\ast$ \hyperlink{interface_c_t_app_delegate_aa9da52eef008be58cd46240bd866fc4e}{device\-Table}
+\item 
+I\-B\-Outlet N\-S\-Array\-Controller $\ast$ \hyperlink{interface_c_t_app_delegate_a39b7c3b8cf871476b88dbd4bcd75c375}{device\-Array\-Controller}
+\item 
+B\-O\-O\-L \hyperlink{interface_c_t_app_delegate_a1b55e71f0fcf89b448e51efd5ecd0915}{rebuilding\-Device\-List}
+\item 
 libusb\-\_\-device $\ast$$\ast$ \hyperlink{interface_c_t_app_delegate_a9d80eb0a8fb6f9c373648cba3dbe5b26}{all\-U\-S\-B\-Devices}
 \item 
 libusb\-\_\-device\-\_\-handle $\ast$ \hyperlink{interface_c_t_app_delegate_a0efa5af44bc03361f0953b7946461635}{U\-S\-B\-Device\-Handle}
 \item 
-libusb\-\_\-device $\ast$ \hyperlink{interface_c_t_app_delegate_ac20589aa72af723c196a1251c22fc093}{the\-U\-S\-B\-Device}
+libusb\-\_\-device $\ast$ \hyperlink{interface_c_t_app_delegate_a98b42a4c60f53c6a31c1554bec3bd9bb}{U\-S\-B\-Device}
 \item 
 ssize\-\_\-t \hyperlink{interface_c_t_app_delegate_aab4901a3d0ce6c86771365bbf1645eeb}{number\-Of\-U\-S\-B\-Devices}
 \item 
@@ -63,6 +65,8 @@ N\-S\-Mutable\-Attributed\-String $\ast$ \hyperlink{interface_c_t_app_delegate_a
 \end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
+\item 
+N\-S\-Mutable\-Array $\ast$ \hyperlink{interface_c_t_app_delegate_abb817f3911fa838a7715173c81256f00}{device\-Array}
 \item 
 N\-S\-Color $\ast$ \hyperlink{interface_c_t_app_delegate_ab0bb80237b8aa297ec48dec224eddbb7}{console\-Error\-Text\-Color}
 \item 
@@ -106,20 +110,6 @@ N\-S\-Number $\ast$ \hyperlink{interface_c_t_app_delegate_afb1667e9e2db3e2b289a0
 \item[{(id)}]{sender}
 \end{DoxyParamCaption}
 }}\label{interface_c_t_app_delegate_ae6fb4f8759991c57bfdd0eb1c89821e3}
-\hypertarget{interface_c_t_app_delegate_ae19f27002aa800030e0fa74b2d6b5237}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!convert\-N\-S\-String\-To\-U\-Int16@{convert\-N\-S\-String\-To\-U\-Int16}}
-\index{convert\-N\-S\-String\-To\-U\-Int16@{convert\-N\-S\-String\-To\-U\-Int16}!CTAppDelegate@{C\-T\-App\-Delegate}}
-\subsubsection[{convert\-N\-S\-String\-To\-U\-Int16}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (U\-Int16) convert\-N\-S\-String\-To\-U\-Int16 
-\begin{DoxyParamCaption}
-\item[{(N\-S\-String $\ast$)}]{the\-String}
-\end{DoxyParamCaption}
-}}\label{interface_c_t_app_delegate_ae19f27002aa800030e0fa74b2d6b5237}
-\hypertarget{interface_c_t_app_delegate_a8e6db21c4bf9f1813527f4951572b3c8}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!convert\-N\-S\-String\-To\-U\-Int8@{convert\-N\-S\-String\-To\-U\-Int8}}
-\index{convert\-N\-S\-String\-To\-U\-Int8@{convert\-N\-S\-String\-To\-U\-Int8}!CTAppDelegate@{C\-T\-App\-Delegate}}
-\subsubsection[{convert\-N\-S\-String\-To\-U\-Int8}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (U\-Int8) convert\-N\-S\-String\-To\-U\-Int8 
-\begin{DoxyParamCaption}
-\item[{(N\-S\-String $\ast$)}]{the\-String}
-\end{DoxyParamCaption}
-}}\label{interface_c_t_app_delegate_a8e6db21c4bf9f1813527f4951572b3c8}
 \hypertarget{interface_c_t_app_delegate_ae71bc249cd087494e9b00e49988b5b55}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!data\-From\-Hex\-String\-:@{data\-From\-Hex\-String\-:}}
 \index{data\-From\-Hex\-String\-:@{data\-From\-Hex\-String\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{data\-From\-Hex\-String\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Data $\ast$) data\-From\-Hex\-String\-: 
@@ -133,7 +123,7 @@ Convers a hex formatted N\-S\-String to N\-S\-Data.
 
 The string should have byte sized hex symbols speperated by spaces, with or without leading a `0x'. Leading zeros are optional.
 
-A valid example\-: `0xd\-E ad Fe ed 0x\-A 0xb c 0d'.
+A valid example\-: {\ttfamily 0xd\-E ad Fe ed 0x\-A 0xb c 0d}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -150,13 +140,13 @@ N\-S\-Data
 \item[{(id)}]{sender}
 \end{DoxyParamCaption}
 }}\label{interface_c_t_app_delegate_a0061d4cbac40771a21e02323bedbf32b}
-\hypertarget{interface_c_t_app_delegate_a477526454468a7a90dd85aaffad30a57}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!do\-U\-S\-B\-Control\-Transfer\-:@{do\-U\-S\-B\-Control\-Transfer\-:}}
-\index{do\-U\-S\-B\-Control\-Transfer\-:@{do\-U\-S\-B\-Control\-Transfer\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
-\subsubsection[{do\-U\-S\-B\-Control\-Transfer\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) do\-U\-S\-B\-Control\-Transfer\-: 
+\hypertarget{interface_c_t_app_delegate_a5589f0a49987a2edffcf4aac85077d28}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!do\-Control\-Transfer\-:@{do\-Control\-Transfer\-:}}
+\index{do\-Control\-Transfer\-:@{do\-Control\-Transfer\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{do\-Control\-Transfer\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) do\-Control\-Transfer\-: 
 \begin{DoxyParamCaption}
 \item[{(id)}]{sender}
 \end{DoxyParamCaption}
-}}\label{interface_c_t_app_delegate_a477526454468a7a90dd85aaffad30a57}
+}}\label{interface_c_t_app_delegate_a5589f0a49987a2edffcf4aac85077d28}
 \hypertarget{interface_c_t_app_delegate_a21bf37f0abad2c4ba4728db09b3eb6e5}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!list\-All\-Attached\-U\-S\-B\-Devices\-:@{list\-All\-Attached\-U\-S\-B\-Devices\-:}}
 \index{list\-All\-Attached\-U\-S\-B\-Devices\-:@{list\-All\-Attached\-U\-S\-B\-Devices\-:}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{list\-All\-Attached\-U\-S\-B\-Devices\-:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Action) list\-All\-Attached\-U\-S\-B\-Devices\-: 
@@ -212,6 +202,12 @@ N\-S\-Data
 \hypertarget{interface_c_t_app_delegate_a02680c24bf116eb7869cfe0489b2a381}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!console\-Text\-View@{console\-Text\-View}}
 \index{console\-Text\-View@{console\-Text\-View}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{console\-Text\-View}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-Text\-View$\ast$) console\-Text\-View\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a02680c24bf116eb7869cfe0489b2a381}
+\hypertarget{interface_c_t_app_delegate_a39b7c3b8cf871476b88dbd4bcd75c375}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!device\-Array\-Controller@{device\-Array\-Controller}}
+\index{device\-Array\-Controller@{device\-Array\-Controller}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{device\-Array\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-Array\-Controller$\ast$) device\-Array\-Controller\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a39b7c3b8cf871476b88dbd4bcd75c375}
+\hypertarget{interface_c_t_app_delegate_aa9da52eef008be58cd46240bd866fc4e}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!device\-Table@{device\-Table}}
+\index{device\-Table@{device\-Table}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{device\-Table}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\-B\-Outlet N\-S\-Table\-View$\ast$) device\-Table\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_aa9da52eef008be58cd46240bd866fc4e}
 \hypertarget{interface_c_t_app_delegate_a267286c82789444b42d30238c62b38bc}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!input\-Text\-Storage@{input\-Text\-Storage}}
 \index{input\-Text\-Storage@{input\-Text\-Storage}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{input\-Text\-Storage}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Mutable\-Attributed\-String$\ast$) input\-Text\-Storage\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a267286c82789444b42d30238c62b38bc}
@@ -227,9 +223,12 @@ N\-S\-Data
 \hypertarget{interface_c_t_app_delegate_a46c927de3b01529297fa0e078e486f19}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!output\-Text\-Storage@{output\-Text\-Storage}}
 \index{output\-Text\-Storage@{output\-Text\-Storage}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{output\-Text\-Storage}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Mutable\-Attributed\-String$\ast$) output\-Text\-Storage\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a46c927de3b01529297fa0e078e486f19}
-\hypertarget{interface_c_t_app_delegate_ac20589aa72af723c196a1251c22fc093}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!the\-U\-S\-B\-Device@{the\-U\-S\-B\-Device}}
-\index{the\-U\-S\-B\-Device@{the\-U\-S\-B\-Device}!CTAppDelegate@{C\-T\-App\-Delegate}}
-\subsubsection[{the\-U\-S\-B\-Device}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (libusb\-\_\-device$\ast$) the\-U\-S\-B\-Device\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_ac20589aa72af723c196a1251c22fc093}
+\hypertarget{interface_c_t_app_delegate_a1b55e71f0fcf89b448e51efd5ecd0915}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!rebuilding\-Device\-List@{rebuilding\-Device\-List}}
+\index{rebuilding\-Device\-List@{rebuilding\-Device\-List}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{rebuilding\-Device\-List}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (B\-O\-O\-L) rebuilding\-Device\-List\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a1b55e71f0fcf89b448e51efd5ecd0915}
+\hypertarget{interface_c_t_app_delegate_a98b42a4c60f53c6a31c1554bec3bd9bb}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!U\-S\-B\-Device@{U\-S\-B\-Device}}
+\index{U\-S\-B\-Device@{U\-S\-B\-Device}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{U\-S\-B\-Device}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (libusb\-\_\-device$\ast$) U\-S\-B\-Device\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a98b42a4c60f53c6a31c1554bec3bd9bb}
 \hypertarget{interface_c_t_app_delegate_a0efa5af44bc03361f0953b7946461635}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!U\-S\-B\-Device\-Handle@{U\-S\-B\-Device\-Handle}}
 \index{U\-S\-B\-Device\-Handle@{U\-S\-B\-Device\-Handle}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{U\-S\-B\-Device\-Handle}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (libusb\-\_\-device\-\_\-handle$\ast$) U\-S\-B\-Device\-Handle\hspace{0.3cm}{\ttfamily [protected]}}}\label{interface_c_t_app_delegate_a0efa5af44bc03361f0953b7946461635}
@@ -272,6 +271,9 @@ N\-S\-Data
 \hypertarget{interface_c_t_app_delegate_a62fe8f350142e22ead502a51f201cb1f}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!control\-Transfer\-Value@{control\-Transfer\-Value}}
 \index{control\-Transfer\-Value@{control\-Transfer\-Value}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{control\-Transfer\-Value}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) control\-Transfer\-Value\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a62fe8f350142e22ead502a51f201cb1f}
+\hypertarget{interface_c_t_app_delegate_abb817f3911fa838a7715173c81256f00}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!device\-Array@{device\-Array}}
+\index{device\-Array@{device\-Array}!CTAppDelegate@{C\-T\-App\-Delegate}}
+\subsubsection[{device\-Array}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Mutable\-Array$\ast$) device\-Array\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_abb817f3911fa838a7715173c81256f00}
 \hypertarget{interface_c_t_app_delegate_a5803369bf1901ee34be36dbdd3eb3734}{\index{C\-T\-App\-Delegate@{C\-T\-App\-Delegate}!device\-P\-I\-D@{device\-P\-I\-D}}
 \index{device\-P\-I\-D@{device\-P\-I\-D}!CTAppDelegate@{C\-T\-App\-Delegate}}
 \subsubsection[{device\-P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Number$\ast$) device\-P\-I\-D\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [atomic]}, {\ttfamily [copy]}}}\label{interface_c_t_app_delegate_a5803369bf1901ee34be36dbdd3eb3734}
