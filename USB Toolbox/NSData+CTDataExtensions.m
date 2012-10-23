@@ -13,10 +13,7 @@
 + (NSData *) dataFromHexString: (NSString *) theString
 {
   unsigned int i;
-
-  NSScanner* scanner = [NSScanner scannerWithString: theString ];
-	[scanner setCharactersToBeSkipped: [NSCharacterSet characterSetWithCharactersInString: @" "]];
-
+  NSScanner     *scanner    = [ NSScanner scannerWithString: theString ];
   NSMutableData *returnData = [ NSMutableData new ];
 
 	while ([scanner isAtEnd] == NO)
