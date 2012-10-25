@@ -1,7 +1,7 @@
-# USB-Toolbox
+# ![USB Toolbox](https://raw.github.com/JayKickliter/USB-Toolbox/master/USB%20Toolbox/Images/mac.iconset/icon_128x128.png) USB-Toolbox 
 
 <a href="http://www.flickr.com/photos/jaykickliter/8102771234/" title="USBToolBox by Jay Kickliter, on Flickr"><img src="http://farm9.staticflickr.com/8464/8102771234_7d82f8f04e_z.jpg" width="640" height="414" alt="USBToolBox"></a>
-
+  
 ## About
 
 Simple Cocoa application to send Vendor Requests and Bulk Transfers (for now). It is still very early in development.
