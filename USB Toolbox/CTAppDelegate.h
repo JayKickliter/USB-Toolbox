@@ -9,22 +9,28 @@
 #define CT_DISPLAY_HEX        0
 #define CT_DISPLAY_PLAIN_TEXT 1
 
-#import <Cocoa/Cocoa.h>
-#include "libusb.h"
-#include "NSData+CTDataExtensions.h"
-#import "CTUSBDevice.h"
+#import   <Cocoa/Cocoa.h>
+#include  "libusb.h"
+#include  "NSData+CTDataExtensions.h"
+#import   "CTUSBDevice.h"
 
 
 @interface CTAppDelegate : NSObject <NSApplicationDelegate> {
 
-  IBOutlet NSWindow                 *mainWindow;        
+  IBOutlet NSUserDefaultsController *userDefaultsController;
+
+  IBOutlet NSWindow                 *mainWindow;
   IBOutlet NSTextView               *consoleTextView;
   IBOutlet NSTextView               *inputTextView;
-  IBOutlet NSUserDefaultsController *userDefaultsController;
-  IBOutlet NSTableView              *deviceTable;
-  IBOutlet NSArrayController        *deviceArrayController;
+  IBOutlet NSTableView              *deviceListTableView;
+  IBOutlet NSArrayController        *deviceListArrayController;
+  IBOutlet NSButton                 *displayDeviceListButton;
+  IBOutlet NSPopover                *deviceListPopover;
+  IBOutlet NSMenuItem               *displayHexMenuItem;
+  IBOutlet NSMenuItem               *displayASCIIMenuItem;
+  
+  BOOL                              isRebuildingDeviceList;
 
-  BOOL                              rebuildingDeviceList;
     
   libusb_device                     **allUSBDevices;            // pointer to pointer of device, used to retrieve a list of devices
   libusb_device_handle              *USBDeviceHandle;
@@ -45,7 +51,8 @@
 @property (copy) NSColor  *consoleBackgroundColor;
 
 @property (copy) NSNumber *displayHexOrPlainText;
-@property (copy) NSNumber *bulkTransferEndpoint;
+@property (copy) NSNumber *endpointIn;
+@property (copy) NSNumber *endpointOut;
 @property (copy) NSNumber *bulkTransferDirection;
 @property (copy) NSNumber *bulkTransferLength;
 @property (copy) NSNumber *deviceVID;
@@ -56,6 +63,11 @@
 @property (copy) NSNumber *controlTransferValue;
 @property (copy) NSNumber *controlTransferIndex;
 @property (copy) NSNumber *controlTransferLength;
+@property (copy) NSFont   *fixedWidthFont;
+
+@property (readonly)  BOOL displayHex;
+@property (readonly)  BOOL displayASCII;
+@property (readwrite) BOOL isConnected;
 
 
 
@@ -65,9 +77,10 @@
 - (void) printPlainTextFromData:(unsigned char *) theData            length: (int) theLength;
 - (void) printLibUSBError:      (int)             theError    withOperation: (NSString *) theOperation;
 
-- (IBAction) doBulkTransfer:            (id) sender;
-- (IBAction) doControlTransfer:         (id) sender;
-- (IBAction) listAllAttachedUSBDevices: (id) sender;
-- (IBAction) clearConsole:              (id) sender;
+- (IBAction) doBulkTransfer:    (id) sender;
+- (IBAction) doControlTransfer: (id) sender;
+- (IBAction) clearConsole:      (id) sender;
+- (IBAction) showDeviceList:    (id) sender;
+
 
 @end

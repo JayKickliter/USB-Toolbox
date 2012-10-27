@@ -24,7 +24,8 @@ NSString * const CTDefault_bRequest_Key                     = @"controlTransferR
 NSString * const CTDefault_wValue_Key                       = @"controlTransferValue";
 NSString * const CTDefault_wIndex_Key                       = @"controlTransferIndex";
 NSString * const CTDefault_wLength_Key                      = @"controlTransferLength";
-NSString * const CTDefault_endpoint_Key                     = @"bulkTransferEndpoint";
+NSString * const CTDefault_endpointIn_Key                   = @"endpointIn";
+NSString * const CTDefault_endpointOut_Key                  = @"endpointOut";
 NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLength";
 
 @implementation CTAppDelegate
@@ -45,9 +46,11 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
 @synthesize controlTransferValue;
 @synthesize controlTransferIndex;
 @synthesize controlTransferLength;
-@synthesize bulkTransferEndpoint;
+@synthesize endpointIn;
+@synthesize endpointOut;
 @synthesize bulkTransferDirection;
 @synthesize bulkTransferLength;
+@synthesize isConnected;
 
 #pragma mark Startup Methods
 
@@ -72,7 +75,8 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
                                  [ NSNumber numberWithInt:0 ], CTDefault_wValue_Key,
                                  [ NSNumber numberWithInt:0 ], CTDefault_wIndex_Key,
                                  [ NSNumber numberWithInt:0 ], CTDefault_wLength_Key,
-                                 [ NSNumber numberWithInt:0 ], CTDefault_endpoint_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_endpointIn_Key,
+                                 [ NSNumber numberWithInt:0 ], CTDefault_endpointOut_Key,
                                  [ NSNumber numberWithInt:0 ], CTDefault_bulkTransferLength_Key,
                                  nil ];
 
@@ -119,19 +123,11 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   outputTextStorage = [ consoleTextView textStorage ];
   inputTextStorage  = [ inputTextView textStorage ];
 
-  // TODO: make sure this actually changes the font
-  //
-  [ inputTextView setFont: [ NSFont fontWithName:@"Monaco" size:13.0 ]];
+
+  [ self setFixedWidthFont: [ NSFont fontWithName:@"Monaco" size:13.0 ] ];
 
   [ self setupBindings ];
 
-  // let's initialize a library session now, instead of every time we send
-  // a USB request/command.
-  // TODO: also come up with a way to open the desired USB device as soon
-  // as the user enters a valid VID and PID pair. It's pretty slow now to
-  // to send a reuqest, since the methods to do so have to open a device and
-  // close it before they return
-  //
   // All LibUSB fucntions return an integer less zero for failure, and 0
   // for success or a positive integer for sucess and return value, such
   // as number of bytes transfered. There's a printLibUSBError method in this
@@ -160,8 +156,6 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   // I have everything bound to userDefaultsController. Most views in the GUI are also bound to
   // userDefaultsController. That seems a bit janky to me, but the UI textFields were't updating
   // properly when bound straigth to CTAppDelegate.
-  //
-  // TODO: figure out bindings
   //
   [ consoleTextView bind: @"backgroundColor"
                 toObject: userDefaultsController
@@ -245,9 +239,13 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
                 toObject: userDefaultsController
              withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_bmRequestDestination_Key ]
                  options: nil ];
-  [ self            bind: CTDefault_endpoint_Key
+  [ self            bind: CTDefault_endpointIn_Key
                 toObject: userDefaultsController
-             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_endpoint_Key ]
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_endpointIn_Key ]
+                 options: nil ];
+  [ self            bind: CTDefault_endpointOut_Key
+                toObject: userDefaultsController
+             withKeyPath: [ NSString stringWithFormat: @"values.%@", CTDefault_endpointOut_Key ]
                  options: nil ];
   [ self            bind: CTDefault_bulkTransferLength_Key
                 toObject: userDefaultsController
@@ -282,7 +280,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   UInt16  PID       = [ devicePID unsignedShortValue ];
   UInt16  wIndex    = [ controlTransferIndex unsignedShortValue ];
   UInt16  wLength   = [ controlTransferLength unsignedShortValue ];
-  UInt16  wValue    = [ controlTransferIndex unsignedShortValue ];
+  UInt16  wValue    = [ controlTransferValue unsignedShortValue ];
   UInt8   bRequest  = [ controlTransferRequest unsignedCharValue ];
   UInt8   bmRequest = [ requestType unsignedCharValue ] | [ requestDestination unsignedCharValue ];
 
@@ -379,7 +377,9 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   // unsigned char endpoint actually contains both the endpoint number in the lower bits,
   // and the direction in the uppermost bit
   //
-  unsigned char endpoint  = [ bulkTransferDirection unsignedCharValue ] | [ bulkTransferEndpoint unsignedCharValue ];
+  unsigned char theEndpoint = [ bulkTransferDirection unsignedCharValue ] == 0x80 ? [ endpointIn unsignedCharValue ] : [ endpointOut unsignedCharValue ];
+
+  unsigned char endpoint  = [ bulkTransferDirection unsignedCharValue ] | theEndpoint;
   UInt16        wLength   = [ bulkTransferLength intValue ];
   int           actualLength;
   int           error;
@@ -415,28 +415,20 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   // Give some feedback before the transfer.
   //
   [self printString: [ NSString stringWithFormat:
-                      @"Bulk transfer VID=%04x PID=%4@ Endpoint=%02x Length=%d...\n",
+                      @"Bulk transfer VID=%04X PID=%4X Endpoint=%02X Length=%d...\n",
                       [deviceVID unsignedIntValue],
-                      devicePID,
+                      [devicePID unsignedIntValue],
                       endpoint,
                       wLength ]
       withTextColor: [ self consoleInformationTextColor ]];
 
-  // See [ self doControlTransfer ] for an explanation of why this is stupid.
-  //
-  USBDeviceHandle = libusb_open_device_with_vid_pid(NULL, [deviceVID unsignedIntValue], [ devicePID unsignedIntValue ]);
-
-  if ( USBDeviceHandle == NULL ) {
-    [ self printString: @"ERROR: " withTextColor: [ self consoleErrorTextColor ]];
-    [ self printString: @"Invalid VID or PID\n\n"];
-    return;
-  }
 
   // Check for error.
   //
   error = libusb_claim_interface( USBDeviceHandle, 0 );
   if ( error != 0) {
     [ self printLibUSBError: error withOperation: @"libusb_claim_interface" ];
+    return;
   }
 
   // Do the bulk transfer.
@@ -452,6 +444,7 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   //
   if ( error < 0) {
     [ self printLibUSBError: error withOperation: @"libusb_bulk_transfer" ];
+    return;
   } else {
     [ self printString: [ NSString stringWithFormat: @"...actual transfer length: %d\n", actualLength ] withTextColor: [ self consoleInformationTextColor ]];
     [self printData: data length: actualLength];
@@ -466,28 +459,28 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
   //
   if ( error < 0) {
     [ self printLibUSBError: error withOperation: @"libusb_release_interface" ];
+    return;
   }
-
-  // Close the handle.
-  //
-//  libusb_close( USBDeviceHandle );
 }
 
 
 
-- ( IBAction) listAllAttachedUSBDevices:(id)sender
+- (void) rebuildDeviceList
 {
-  rebuildingDeviceList = TRUE;
-  
+  isRebuildingDeviceList = TRUE;
+
+  [ self setIsConnected: FALSE ];
   
   if ( USBDeviceHandle != NULL ) {
-    
     libusb_close( USBDeviceHandle );
+    USBDeviceHandle = NULL;
+    [ self setDeviceVID: nil ];
+    [ self setDevicePID: nil ];
   }
   
   // clear the deviceList
-  NSRange range = NSMakeRange(0, [[deviceArrayController arrangedObjects] count]);
-  [ deviceArrayController removeObjectsAtArrangedObjectIndexes: [ NSIndexSet indexSetWithIndexesInRange: range ]];
+  NSRange range = NSMakeRange(0, [[deviceListArrayController arrangedObjects] count]);
+  [ deviceListArrayController removeObjectsAtArrangedObjectIndexes: [ NSIndexSet indexSetWithIndexesInRange: range ]];
 
   UInt8   theBus;
   UInt8   theAddress;
@@ -559,38 +552,49 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
       [ newUSBDevice setPID: [NSNumber numberWithUnsignedInt: deviceDescriptor.idProduct ]];
       [ newUSBDevice setManufacturerString: theManufacturer ];
       [ newUSBDevice setDeviceString: theDeviceName ];
-      [ deviceArrayController addObject: newUSBDevice ];
+      [ deviceListArrayController addObject: newUSBDevice ];
     }
   }
-  
-  [ self printNewLine: 1 ];
-  rebuildingDeviceList = FALSE;
+
+  [ deviceListTableView deselectRow: [ deviceListTableView selectedRow ]];
+  isRebuildingDeviceList = FALSE;
 }
 
+
+- (IBAction)showDeviceList:(id)sender
+{
+  if ( [ displayDeviceListButton state ]) {
+    [ self rebuildDeviceList ];
+    [ deviceListPopover showRelativeToRect: [ displayDeviceListButton bounds ]
+                              ofView: displayDeviceListButton
+                       preferredEdge: NSMaxYEdge];
+  } else {
+    [ deviceListPopover close];
+  }
+}
 
 
 - (void) tableViewSelectionDidChange: (NSNotification *) aNotification
 {
-  if ( rebuildingDeviceList)  {
+  if ( isRebuildingDeviceList)  {
     return;
   }
-  NSLog(@"tableViewSelectionDidChange");
-  NSInteger i = [ deviceTable selectedRow ];
+  NSInteger i = [ deviceListTableView selectedRow ];
   if ( i == -1) {
     [ self setDeviceVID: [ NSNumber numberWithInt: 0 ]];
     [ self setDevicePID: [ NSNumber numberWithInt: 0 ]];
     return;
   }
-//  if ( USBDeviceHandle != NULL ) {
-//    libusb_close( USBDeviceHandle );
-//  }
+
   CTUSBDevice *selectedDevice = [ deviceArray objectAtIndex: i ];
   [ self setDeviceVID: [ selectedDevice VID ]];
   [ self setDevicePID: [ selectedDevice PID ]];
   USBDeviceHandle = libusb_open_device_with_vid_pid(NULL,
                                                     [ deviceVID unsignedIntValue ],
                                                     [ devicePID unsignedIntValue ] );
-//  USBDeviceHandle = [ selectedDevice handle ];
+  [ self setIsConnected: TRUE ];
+  [ deviceListPopover close ];
+  [ displayDeviceListButton setState: 0 ];
 }
 
 
@@ -767,7 +771,26 @@ NSString * const CTDefault_bulkTransferLength_Key           = @"bulkTransferLeng
 
 
 
+- (BOOL) displayHex
+{
+  return [ displayHexOrPlainText intValue ] == CT_DISPLAY_HEX;
+}
 
+- (BOOL) displayASCII
+{
+  return [ displayHexOrPlainText intValue ] == CT_DISPLAY_PLAIN_TEXT;
+}
+
+
+- (IBAction) displayHex: (id) sender
+{
+  [ self setDisplayHexOrPlainText: [ NSNumber numberWithInteger: CT_DISPLAY_HEX ]];
+}
+
+- (IBAction) displayASCII: (id) sender
+{
+  [ self setDisplayHexOrPlainText: [ NSNumber numberWithInteger: CT_DISPLAY_PLAIN_TEXT ]];
+}
 
 
 @end
